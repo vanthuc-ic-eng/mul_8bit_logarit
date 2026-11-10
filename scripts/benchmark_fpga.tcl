@@ -72,26 +72,12 @@ read_verilog $rtl_files
 # ------------------------------------------------------------------------------
 # 1. Synthesis (Out-of-context, DSP strictly prohibited)
 # ------------------------------------------------------------------------------
-set has_op_iso 0
-if {[file exists "rtl/${top_module}.v"]} {
-    set fp [open "rtl/${top_module}.v" "r"]
-    set content [read $fp]
-    close $fp
-    if {[string match "*OPERAND_ISOLATION*" $content]} {
-        set has_op_iso 1
-    }
-}
-
 if {$top_module eq "exact_mul_s8_registered"} {
     synth_design -top $top_module -part xc7z010clg400-1 -mode out_of_context -max_dsp 0
-} elseif {$has_op_iso} {
-    synth_design -top $top_module -part xc7z010clg400-1 -mode out_of_context -max_dsp 0 \
-        -generic MODE=$mode_val -generic TRUNC_BITS=$trunc_bits -generic QUAD_CURV=$quad_curv \
-        -generic USE_CARRY=$use_carry -generic OPERAND_ISOLATION=$op_isolation
 } else {
     synth_design -top $top_module -part xc7z010clg400-1 -mode out_of_context -max_dsp 0 \
         -generic MODE=$mode_val -generic TRUNC_BITS=$trunc_bits -generic QUAD_CURV=$quad_curv \
-        -generic USE_CARRY=$use_carry
+        -generic USE_CARRY=$use_carry -generic OPERAND_ISOLATION=$op_isolation
 }
 
 # ------------------------------------------------------------------------------

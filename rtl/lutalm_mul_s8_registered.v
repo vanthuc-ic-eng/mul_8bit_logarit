@@ -10,11 +10,12 @@
 `timescale 1ns / 1ps
 
 module lutalm_mul_s8_registered #(
-    parameter integer MODE         = 0,
-    parameter integer LOW_W        = 2,
-    parameter integer TRUNC_BITS   = 4,
-    parameter integer ZERO_ADDER   = 1,
-    parameter integer ADAPTIVE_LUT = 0
+    parameter integer MODE              = 2,
+    parameter integer LOW_W             = 2,
+    parameter integer TRUNC_BITS        = 4,
+    parameter integer ZERO_ADDER        = 1,
+    parameter integer ADAPTIVE_LUT      = 0,
+    parameter integer OPERAND_ISOLATION = 1
 )(
     input  wire               clk,
     input  wire               rst_n,
@@ -33,7 +34,8 @@ module lutalm_mul_s8_registered #(
         .LOW_W             ( LOW_W                  ),
         .TRUNC_BITS        ( TRUNC_BITS             ),
         .ZERO_ADDER        ( ZERO_ADDER             ),
-        .ADAPTIVE_LUT      ( ADAPTIVE_LUT           )
+        .ADAPTIVE_LUT      ( ADAPTIVE_LUT           ),
+        .OPERAND_ISOLATION ( OPERAND_ISOLATION      )
     ) u_core (
         .a_i               ( a_reg                  ),
         .b_i               ( b_reg                  ),

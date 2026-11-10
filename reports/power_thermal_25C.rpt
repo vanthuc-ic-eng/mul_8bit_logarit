@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
-| Date             : Wed Nov 11 01:50:28 2026
+| Date             : Wed Nov 11 01:18:51 2026
 | Host             : ic-workstation running 64-bit Ubuntu 24.04.5 LTS
 | Command          : report_power -file reports/power_thermal_25C.rpt
 | Design           : lutalm_mul_s8_registered
@@ -53,12 +53,11 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |    <0.001 |        3 |       --- |             --- |
-| Slice Logic    |    <0.001 |      111 |       --- |             --- |
-|   LUT as Logic |    <0.001 |       62 |     17600 |            0.35 |
-|   Register     |    <0.001 |       28 |     35200 |            0.08 |
-|   CARRY4       |    <0.001 |        3 |      4400 |            0.07 |
-|   Others       |     0.000 |        4 |       --- |             --- |
-| Signals        |    <0.001 |       83 |       --- |             --- |
+| Slice Logic    |    <0.001 |       74 |       --- |             --- |
+|   LUT as Logic |    <0.001 |       36 |     17600 |            0.20 |
+|   Register     |    <0.001 |       26 |     35200 |            0.07 |
+|   Others       |     0.000 |        2 |       --- |             --- |
+| Signals        |    <0.001 |       52 |       --- |             --- |
 | Static Power   |     0.090 |          |           |                 |
 | Total          |     0.091 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
@@ -143,10 +142,8 @@ Table of Contents
 3.1 By Hierarchy
 ----------------
 
-+--------------------------+-----------+
-| Name                     | Power (W) |
-+--------------------------+-----------+
-| lutalm_mul_s8_registered |     0.001 |
-+--------------------------+-----------+
++------+-----------+
+| Name | Power (W) |
++------+-----------+
 
 

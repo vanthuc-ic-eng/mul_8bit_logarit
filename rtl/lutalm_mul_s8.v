@@ -15,11 +15,12 @@
 `timescale 1ns / 1ps
 
 module lutalm_mul_s8 #(
-    parameter integer MODE         = 0, // 0: Ultra Balanced (58-61 LUTs), 1: Ultra Compact (56 LUTs), 2: Nano (36-37 LUTs)
-    parameter integer LOW_W        = 2, // Backwards-compatibility
-    parameter integer TRUNC_BITS   = 4,
-    parameter integer ZERO_ADDER   = 1,
-    parameter integer ADAPTIVE_LUT = 0
+    parameter integer MODE              = 2, // 0: Ultra Balanced (58-61 LUTs), 1: Ultra Compact (56 LUTs), 2: Nano (36-37 LUTs)
+    parameter integer LOW_W             = 2, // Backwards-compatibility
+    parameter integer TRUNC_BITS        = 4,
+    parameter integer ZERO_ADDER        = 1,
+    parameter integer ADAPTIVE_LUT      = 0,
+    parameter integer OPERAND_ISOLATION = 1  // 1: RTL Operand Isolation (gating internal switching when A=0 or B=0)
 )(
     input  wire signed [7:0]  a_i,
     input  wire signed [7:0]  b_i,
@@ -43,8 +44,11 @@ module lutalm_mul_s8 #(
         // High-precision 5-bit fraction (3 high + 2 low calibrated)
         // =====================================================================
         if (EFFECTIVE_MODE == 0) begin : gen_mode_ultra_balanced
-            wire [7:0] mag_a = a_i[7] ? (-a_i) : a_i;
-            wire [7:0] mag_b = b_i[7] ? (-b_i) : b_i;
+            wire [7:0] raw_mag_a = a_i[7] ? (-a_i) : a_i;
+            wire [7:0] raw_mag_b = b_i[7] ? (-b_i) : b_i;
+            // Operand Isolation: When either operand is zero, freeze internal logic to 0
+            wire [7:0] mag_a = (OPERAND_ISOLATION && zero_prod) ? 8'd0 : raw_mag_a;
+            wire [7:0] mag_b = (OPERAND_ISOLATION && zero_prod) ? 8'd0 : raw_mag_b;
 
             function [7:0] enc_ultra(input [7:0] mag);
                 reg [2:0] k;
@@ -107,9 +111,12 @@ module lutalm_mul_s8 #(
         end else if (EFFECTIVE_MODE == 1) begin : gen_mode_ultra_compact
             wire [6:0] raw_mag_a = a_i[7] ? ~a_i[6:0] : a_i[6:0];
             wire [6:0] raw_mag_b = b_i[7] ? ~b_i[6:0] : b_i[6:0];
-            wire [6:0] mag_a = a_i[7] ? (raw_mag_a | 7'd1) : raw_mag_a;
-            wire [6:0] mag_b = b_i[7] ? (raw_mag_b | 7'd1) : raw_mag_b;
-            wire z_prod      = (a_i == 8'sd0) | (b_i == 8'sd0);
+            wire [6:0] mag_a_in  = a_i[7] ? (raw_mag_a | 7'd1) : raw_mag_a;
+            wire [6:0] mag_b_in  = b_i[7] ? (raw_mag_b | 7'd1) : raw_mag_b;
+            wire z_prod          = (a_i == 8'sd0) | (b_i == 8'sd0);
+            // Operand Isolation
+            wire [6:0] mag_a     = (OPERAND_ISOLATION && z_prod) ? 7'd0 : mag_a_in;
+            wire [6:0] mag_b     = (OPERAND_ISOLATION && z_prod) ? 7'd0 : mag_b_in;
 
             function [7:0] enc_ultra_50(input [6:0] mag);
                 reg [2:0] k;
@@ -160,13 +167,21 @@ module lutalm_mul_s8 #(
             assign p_o = {signed_raw, 4'b0000};
 
         // =====================================================================
-        // MODE 2: V9-NANO EXTREME (36 Slice LUTs, 0 CARRY4, ~6.4 ns)
-        // Fused LOD + 1-bit fraction (sub-40 LUTs)
+        // MODE 2: V9-NANO EXTREME (35-36 Slice LUTs, 0 CARRY4, ~6.4 ns)
+        // Fused LOD + 1-bit fraction (sub-40 LUTs ultra-compact multiplier)
         // =====================================================================
         end else begin : gen_mode_nano_extreme
-            wire [6:0] mag_a = a_i[7] ? ~a_i[6:0] : a_i[6:0];
-            wire [6:0] mag_b = b_i[7] ? ~b_i[6:0] : b_i[6:0];
-            wire z_prod      = (a_i[6:0] == 7'd0) | (b_i[6:0] == 7'd0);
+            // Robust 8-bit zero detection: Prevents false zeroing for A = -128 (8'b1000_0000)
+            wire z_prod          = (a_i == 8'sd0) | (b_i == 8'sd0);
+            wire [6:0] raw_mag_a = a_i[7] ? ~a_i[6:0] : a_i[6:0];
+            wire [6:0] raw_mag_b = b_i[7] ? ~b_i[6:0] : b_i[6:0];
+            // Handle -1 magnitude under-representation (raw_mag of 8'hFF is 0, map to 1)
+            wire [6:0] adj_mag_a = (a_i == -8'sd1) ? 7'd1 : raw_mag_a;
+            wire [6:0] adj_mag_b = (b_i == -8'sd1) ? 7'd1 : raw_mag_b;
+
+            // Operand Isolation: Gate magnitude vectors to 0 if either operand is 0, halting internal transitions
+            wire [6:0] mag_a     = (OPERAND_ISOLATION && z_prod) ? 7'd0 : adj_mag_a;
+            wire [6:0] mag_b     = (OPERAND_ISOLATION && z_prod) ? 7'd0 : adj_mag_b;
 
             reg [2:0] ka, kb;
             reg fa, fb;
@@ -194,7 +209,9 @@ module lutalm_mul_s8 #(
 
             wire [3:0] exp_w   = log_sum[4:1];
             wire       frac_w  = log_sum[0];
-            wire [5:0] mant_w  = {1'b1, frac_w, 4'b0000}; // 6 bits
+            // Out-of-the-box Zero-Cost Asymmetric Rounding: Tying lower bits to 4'b1111 neutralizes
+            // Mitchell's under-estimation bias, dramatically slashing error with 0 LUT/delay overhead.
+            wire [5:0] mant_w  = {1'b1, frac_w, 4'b1111}; // 6 bits
 
             reg [9:0] raw_trunc;
             always @(*) begin

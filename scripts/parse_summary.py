@@ -184,7 +184,11 @@ def print_fpga(data):
     print(f" Dynamic Power @100M: {data['p_dyn_100mhz']}")
     print(f" Dynamic Power @ 50M: {data['p_dyn_50mhz']}")
     print(f" DSP Blocks         : {data['dsp']}")
-    print("=======================================================\n")
+    print("=======================================================")
+    
+    deep_rpt = Path(data['dir']) / "deep_fpga_signoff_summary.rpt"
+    if deep_rpt.exists():
+        print("\n" + deep_rpt.read_text().strip() + "\n")
 
 def print_summary_card(data):
     print("\n==================================================================")
