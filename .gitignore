@@ -1,0 +1,53 @@
+# ==============================================================================
+# .gitignore for 8-bit Multiplier Project (AMD Vivado & Nangate 45nm ASIC)
+# ==============================================================================
+
+# Build & Output Directories
+build/
+bitstream/
+
+# Bitstream & Programming Files
+*.bit
+*.bin
+*.mcs
+*.prm
+*.bgn
+*.drc
+*.fs
+
+# Vivado / EDA Temporary Files, Checkpoints & WebTalk Logs
+/*.log
+.Xil/
+.xil/
+xsim.dir/
+hd_visual/
+vivado/*.cache/
+vivado/*.hw/
+vivado/*.ip_user_files/
+vivado/*.runs/
+vivado/*.sim/
+*.jou
+*.str
+*.pb
+*.dcp
+*.wdb
+*.vcd
+clockInfo.txt
+webtalk*
+usage_statistics_webtalk.*
+command.txt
+
+# Python Cache & Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# OS & Editor Metadata
+.DS_Store
+Thumbs.db
+*~
+*.swp
+*.swo
+.vscode/
+.idea/

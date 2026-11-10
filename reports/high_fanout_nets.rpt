@@ -1,0 +1,41 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
+| Date         : Wed Nov 11 02:57:26 2026
+| Host         : ic-workstation running 64-bit Ubuntu 24.04.5 LTS
+| Command      : report_high_fanout_nets -fanout_greater_than 5 -max_nets 20 -file reports/high_fanout_nets.rpt
+| Design       : exact_mul_s8_registered
+| Device       : xc7z010
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+High Fan-out Nets Information
+
+1. Summary
+----------
+
++---------------------------------------+--------+-------------+
+| Net Name                              | Fanout | Driver Type |
++---------------------------------------+--------+-------------+
+| a_reg[5]                              |     33 | FDCE        |
+| p_o[15]_i_2_n_0                       |     32 | LUT1        |
+| a_reg[3]                              |     32 | FDCE        |
+| a_reg[6]                              |     28 | FDCE        |
+| a_reg[2]                              |     27 | FDCE        |
+| a_reg[4]                              |     27 | FDCE        |
+| b_reg[5]                              |     26 | FDCE        |
+| b_reg[2]                              |     24 | FDCE        |
+| b_reg[1]                              |     24 | FDCE        |
+| b_reg[4]                              |     23 | FDCE        |
+| a_reg[1]                              |     23 | FDCE        |
+| b_reg[0]                              |     22 | FDCE        |
+| b_reg[3]                              |     22 | FDCE        |
+| a_reg[7]                              |     20 | FDCE        |
+| a_reg[0]                              |     20 | FDCE        |
+| b_reg[6]                              |     20 | FDCE        |
+| b_reg[7]                              |     19 | FDCE        |
+| u_core/baseline_mul_inst/Add_Row_2/c5 |      8 | LUT6        |
+| u_core/baseline_mul_inst/Add_Row_1/c3 |      8 | LUT6        |
+| u_core/baseline_mul_inst/Add_Row_5/c4 |      7 | LUT6        |
++---------------------------------------+--------+-------------+
+
+

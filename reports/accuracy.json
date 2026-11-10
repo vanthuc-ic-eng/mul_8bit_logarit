@@ -1,0 +1,10 @@
+{
+  "architecture": "baseline",
+  "total_cases": 65536,
+  "incorrect_cases": 0,
+  "error_rate_pct": 0.0,
+  "MRED_pct": 0.0,
+  "MED": 0.0,
+  "WCE": 0,
+  "worst_case": null
+}

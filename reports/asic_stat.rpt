@@ -1,0 +1,30 @@
+
+15. Printing statistics.
+
+=== exact_mul_s8 ===
+
+   Number of wires:                298
+   Number of wire bits:            327
+   Number of public wires:          18
+   Number of public wire bits:      47
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                296
+     AND2_X1                        13
+     AND3_X1                        11
+     AND4_X1                         5
+     AOI21_X1                       47
+     AOI22_X1                        5
+     INV_X1                          2
+     NAND2_X1                       43
+     NAND3_X1                       16
+     NAND4_X1                        4
+     NOR2_X1                        30
+     OAI21_X1                       23
+     OR2_X1                          7
+     XNOR2_X1                       59
+     XOR2_X1                        31
+
+   Chip area for module '\exact_mul_s8': 350.322000
+
