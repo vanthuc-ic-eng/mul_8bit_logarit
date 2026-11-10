@@ -118,7 +118,7 @@ sim:
 	@mkdir -p $(REPORT_DIR) build
 	@echo ">>> [1/4] Compiling and Running Vivado xsim Simulation (65,536 vectors)..."
 	@xvlog -nolog $(SIM_DEF) rtl/*.v sim/tb_mul_8bit.v
-	@xelab -nolog $(SIM_DEF) -top tb_mul_8bit -s sim_snapshot $(if $(filter baseline,$(ARCH)),,-generic_top "MODE=$(MODE_VAL)" -generic_top "OPERAND_ISOLATION=$(OPERAND_ISOLATION)")
+	@xelab -nolog $(SIM_DEF) -top tb_mul_8bit -s sim_snapshot $(if $(filter baseline,$(ARCH)),,-generic_top "MODE=$(MODE_VAL)")
 	@xsim sim_snapshot -nolog -R | tee $(REPORT_DIR)/simulation.log
 	@if [ -f $(REPORT_DIR)/simulation_vectors.csv ]; then \
 		echo ">>> [2/4] Generating Exhaustive 65,536-Vector Excel Lookup Workbooks..."; \

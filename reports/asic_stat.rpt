@@ -1,30 +1,42 @@
 
-15. Printing statistics.
+22. Printing statistics.
 
-=== exact_mul_s8 ===
+=== lutalm_mul_s8 ===
 
-   Number of wires:                298
-   Number of wire bits:            327
-   Number of public wires:          18
-   Number of public wire bits:      47
+   Number of wires:                239
+   Number of wire bits:            268
+   Number of public wires:           3
+   Number of public wire bits:      32
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
-   Number of cells:                296
-     AND2_X1                        13
-     AND3_X1                        11
-     AND4_X1                         5
-     AOI21_X1                       47
-     AOI22_X1                        5
-     INV_X1                          2
-     NAND2_X1                       43
-     NAND3_X1                       16
-     NAND4_X1                        4
-     NOR2_X1                        30
-     OAI21_X1                       23
-     OR2_X1                          7
-     XNOR2_X1                       59
-     XOR2_X1                        31
+   Number of cells:                248
+     AND2_X1                        11
+     AND3_X1                         6
+     AND4_X1                         1
+     AOI211_X1                       3
+     AOI21_X1                       27
+     AOI221_X1                       3
+     AOI222_X1                       5
+     AOI22_X1                        4
+     INV_X1                         15
+     MUX2_X1                         6
+     NAND2_X1                       25
+     NAND3_X1                        7
+     NAND4_X1                        8
+     NOR2_X1                        26
+     NOR3_X1                        10
+     NOR4_X1                         2
+     OAI211_X1                       8
+     OAI21_X1                       27
+     OAI221_X1                       2
+     OAI22_X1                        3
+     OAI33_X1                        1
+     OR2_X1                          9
+     OR3_X1                          5
+     OR4_X1                          2
+     XNOR2_X1                       22
+     XOR2_X1                        10
 
-   Chip area for module '\exact_mul_s8': 350.322000
+   Chip area for module '\lutalm_mul_s8': 284.886000
 

@@ -145,61 +145,6 @@ def eval_multiplier(arch="v9_ultra"):
                 if res >= 0x8000: res -= 0x10000
                 approx = res
 
-            elif arch in ["v10_nano", "v5_nano"]:
-                # Hardware bit-accurate emulation of LUT-ALM V10-Nano with zero-cost asymmetric constant compensation
-                mag_a = (-a) & 0xFF if a < 0 else (a & 0xFF)
-                mag_b = (-b) & 0xFF if b < 0 else (b & 0xFF)
-                sign_prod = 1 if (a < 0) ^ (b < 0) else 0
-                zero_prod = 1 if (a == 0 or b == 0) else 0
-                eff_sign = 0 if zero_prod else sign_prod
-
-                def enc_v10(mag):
-                    if mag == 0:
-                        return 0
-                    k = mag.bit_length() - 1
-                    bits = ((mag << (7 - k)) & 0xFF) & 0x7F
-                    high = (bits >> 4) & 7
-                    addr = (bits >> 1) & 7
-                    low = 0 if addr == 0 else 1
-                    return (k << 4) | (high << 1) | low
-
-                log_a = enc_v10(mag_a)
-                log_b = enc_v10(mag_b)
-                log_sum = log_a + log_b
-                raw_exp = (log_sum >> 4) & 0xF
-                eff_exp = 0 if zero_prod else raw_exp
-                frac_w = log_sum & 0xF
-                mant_w = ((1 << 4) | frac_w) << 1 | 1 # 6 bits with +0.5 LSB constant rounding
-
-                if eff_exp <= 5:
-                    raw_trunc = 0
-                elif eff_exp == 6:
-                    raw_trunc = (mant_w >> 5) & 1
-                elif eff_exp == 7:
-                    raw_trunc = (mant_w >> 4) & 3
-                elif eff_exp == 8:
-                    raw_trunc = (mant_w >> 3) & 7
-                elif eff_exp == 9:
-                    raw_trunc = (mant_w >> 2) & 0xF
-                elif eff_exp == 10:
-                    raw_trunc = (mant_w >> 1) & 0x1F
-                elif eff_exp == 11:
-                    raw_trunc = mant_w & 0x3F
-                elif eff_exp == 12:
-                    raw_trunc = (mant_w << 1) & 0x7F
-                elif eff_exp == 13:
-                    raw_trunc = (mant_w << 2) & 0xFF
-                elif eff_exp == 14:
-                    raw_trunc = (mant_w << 3) & 0x1FF
-                else:
-                    raw_trunc = (mant_w << 4) & 0x3FF
-
-                signed_raw = (raw_trunc ^ 0x3FF) if eff_sign else raw_trunc
-                res = (signed_raw << 6)
-                if res >= 0x8000:
-                    res -= 0x10000
-                approx = res
-
             elif arch == "v9_nano":
                 # Hardware bit-accurate emulation of lutalm_mul_s8 with LOW_W=1, TRUNC_BITS=6, ZERO_ADDER=1
                 mag_a = (-a) & 0xFF if a < 0 else (a & 0xFF)
@@ -325,7 +270,7 @@ def eval_multiplier(arch="v9_ultra"):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Evaluate Signed INT8 Multiplier Accuracy")
-    parser.add_argument("--arch", choices=["baseline", "v10_nano", "v5_nano", "v9_ultra", "v9_ultra_compact", "v9_nano", "v8_legacy", "lutalm"], default="v10_nano")
+    parser.add_argument("--arch", choices=["baseline", "v9_ultra", "v9_ultra_compact", "v9_nano", "v8_legacy", "lutalm"], default="v9_ultra")
     parser.add_argument("--trunc", type=int, default=4, help="Ignored in V9")
     parser.add_argument("--quad", type=int, default=0, help="Ignored in V9")
     parser.add_argument("--out", type=str, default="")

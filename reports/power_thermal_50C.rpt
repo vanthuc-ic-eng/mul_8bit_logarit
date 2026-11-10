@@ -1,10 +1,10 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
-| Date             : Wed Nov 11 02:57:24 2026
+| Date             : Wed Nov 11 01:50:28 2026
 | Host             : ic-workstation running 64-bit Ubuntu 24.04.5 LTS
 | Command          : report_power -file reports/power_thermal_50C.rpt
-| Design           : exact_mul_s8_registered
+| Design           : lutalm_mul_s8_registered
 | Device           : xc7z010clg400-1
 | Design State     : routed
 | Grade            : commercial
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.129        |
+| Total On-Chip Power (W)  | 0.127        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.004        |
+| Dynamic (W)              | 0.001        |
 | Device Static (W)        | 0.126        |
 | Effective TJA (C/W)      | 14.4         |
-| Max Ambient (C)          | 83.1         |
-| Junction Temperature (C) | 51.9         |
+| Max Ambient (C)          | 83.2         |
+| Junction Temperature (C) | 51.8         |
 | Confidence Level         | Medium       |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -53,13 +53,14 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |    <0.001 |        3 |       --- |             --- |
-| Slice Logic    |     0.001 |      208 |       --- |             --- |
-|   LUT as Logic |     0.001 |      150 |     17600 |            0.85 |
-|   Register     |    <0.001 |       32 |     35200 |            0.09 |
-|   Others       |     0.000 |        1 |       --- |             --- |
-| Signals        |     0.002 |      177 |       --- |             --- |
+| Slice Logic    |    <0.001 |      111 |       --- |             --- |
+|   LUT as Logic |    <0.001 |       62 |     17600 |            0.35 |
+|   Register     |    <0.001 |       28 |     35200 |            0.08 |
+|   CARRY4       |    <0.001 |        3 |      4400 |            0.07 |
+|   Others       |     0.000 |        4 |       --- |             --- |
+| Signals        |    <0.001 |       83 |       --- |             --- |
 | Static Power   |     0.126 |          |           |                 |
-| Total          |     0.129 |          |           |                 |
+| Total          |     0.127 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -69,7 +70,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.013 |       0.004 |      0.009 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.011 |       0.001 |      0.009 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.010 |       0.000 |      0.010 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -142,10 +143,10 @@ Table of Contents
 3.1 By Hierarchy
 ----------------
 
-+-------------------------+-----------+
-| Name                    | Power (W) |
-+-------------------------+-----------+
-| exact_mul_s8_registered |     0.004 |
-+-------------------------+-----------+
++--------------------------+-----------+
+| Name                     | Power (W) |
++--------------------------+-----------+
+| lutalm_mul_s8_registered |     0.001 |
++--------------------------+-----------+
 
 
