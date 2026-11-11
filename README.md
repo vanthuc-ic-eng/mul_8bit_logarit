@@ -33,9 +33,6 @@ This repository contains the official, industrial-grade implementation of 8-bit 
   - **2 CARRY4** primitives, **28 Slice Flip-Flops**.
   - **6.455 ns** critical path delay ($F_{\max} = 154.92\text{ MHz}$, **Slack = +3.492 ns** at 100 MHz, **+52.0% faster** than baseline).
   - **1.00 mW** dynamic power @ 100 MHz (**-75.0% reduction** vs. baseline).
-- **ASIC 45-nm Implementation (Nangate 45nm OpenCellLibrary):**
-  - **245 standard cells**, **407.78 µm²** total cell area (Combinational core: ~280 µm²).
-  - **0.910 ns** STA delay ($F_{\max} = 1.099\text{ GHz}$), **77.30 µW** total power.
 - **Mathematical Accuracy:**
   - Exhaustive 65,536-vector INT8 Two's Complement Sweep ($[-128, 127] \times [-128, 127]$).
   - **$\text{MRED} = 5.5861\%$** (Well below the 8.0% design contest target; -66.2% error reduction vs. v0.1.1).
