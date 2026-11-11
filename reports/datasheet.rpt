@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
-| Date         : Wed Nov 11 01:18:52 2026
+| Date         : Wed Nov 11 13:25:14 2026
 | Host         : ic-workstation running 64-bit Ubuntu 24.04.5 LTS
 | Command      : report_datasheet -file reports/datasheet.rpt
 | Design       : lutalm_mul_s8_registered
@@ -21,20 +21,20 @@ Clock     | Port   | Type    | Type  | to Clk (Edge) | Corner  | to Clk (Edge) |
 clk       | a_i[0] | FDCE    | -     |     0.141 (r) | SLOW    |     0.241 (r) | SLOW    |          |
 clk       | a_i[1] | FDCE    | -     |     0.155 (r) | SLOW    |     0.229 (r) | SLOW    |          |
 clk       | a_i[2] | FDCE    | -     |     0.135 (r) | SLOW    |     0.245 (r) | SLOW    |          |
-clk       | a_i[3] | FDCE    | -     |     0.141 (r) | SLOW    |     0.241 (r) | SLOW    |          |
-clk       | a_i[4] | FDCE    | -     |     0.105 (r) | SLOW    |     0.292 (r) | SLOW    |          |
-clk       | a_i[5] | FDCE    | -     |     0.119 (r) | SLOW    |     0.281 (r) | SLOW    |          |
-clk       | a_i[6] | FDCE    | -     |     0.102 (r) | SLOW    |     0.295 (r) | SLOW    |          |
-clk       | a_i[7] | FDCE    | -     |     0.102 (r) | SLOW    |     0.295 (r) | SLOW    |          |
-clk       | b_i[0] | FDCE    | -     |     0.105 (r) | SLOW    |     0.292 (r) | SLOW    |          |
-clk       | b_i[1] | FDCE    | -     |     0.141 (r) | SLOW    |     0.241 (r) | SLOW    |          |
-clk       | b_i[2] | FDCE    | -     |     0.119 (r) | SLOW    |     0.281 (r) | SLOW    |          |
-clk       | b_i[3] | FDCE    | -     |     0.102 (r) | SLOW    |     0.295 (r) | SLOW    |          |
-clk       | b_i[4] | FDCE    | -     |     0.155 (r) | SLOW    |     0.229 (r) | SLOW    |          |
-clk       | b_i[5] | FDCE    | -     |     0.135 (r) | SLOW    |     0.245 (r) | SLOW    |          |
-clk       | b_i[6] | FDCE    | -     |     0.132 (r) | SLOW    |     0.248 (r) | SLOW    |          |
-clk       | b_i[7] | FDCE    | -     |     0.141 (r) | SLOW    |     0.241 (r) | SLOW    |          |
-clk       | rst_n  | FDCE    | -     |     1.829 (r) | SLOW    |    -0.339 (r) | FAST    |          |
+clk       | a_i[3] | FDCE    | -     |     0.132 (r) | SLOW    |     0.248 (r) | SLOW    |          |
+clk       | a_i[4] | FDCE    | -     |     0.141 (r) | SLOW    |     0.241 (r) | SLOW    |          |
+clk       | a_i[5] | FDCE    | -     |     0.155 (r) | SLOW    |     0.229 (r) | SLOW    |          |
+clk       | a_i[6] | FDCE    | -     |     0.141 (r) | SLOW    |     0.241 (r) | SLOW    |          |
+clk       | a_i[7] | FDCE    | -     |     0.135 (r) | SLOW    |     0.245 (r) | SLOW    |          |
+clk       | b_i[0] | FDCE    | -     |     0.141 (r) | SLOW    |     0.241 (r) | SLOW    |          |
+clk       | b_i[1] | FDCE    | -     |     0.155 (r) | SLOW    |     0.229 (r) | SLOW    |          |
+clk       | b_i[2] | FDCE    | -     |     0.141 (r) | SLOW    |     0.241 (r) | SLOW    |          |
+clk       | b_i[3] | FDCE    | -     |     0.155 (r) | SLOW    |     0.229 (r) | SLOW    |          |
+clk       | b_i[4] | FDCE    | -     |     0.135 (r) | SLOW    |     0.245 (r) | SLOW    |          |
+clk       | b_i[5] | FDCE    | -     |     0.132 (r) | SLOW    |     0.248 (r) | SLOW    |          |
+clk       | b_i[6] | FDCE    | -     |     0.135 (r) | SLOW    |     0.245 (r) | SLOW    |          |
+clk       | b_i[7] | FDCE    | -     |     0.132 (r) | SLOW    |     0.248 (r) | SLOW    |          |
+clk       | rst_n  | FDCE    | -     |     1.927 (r) | SLOW    |    -0.407 (r) | FAST    |          |
 ----------+--------+---------+-------+---------------+---------+---------------+---------+----------+
 
 
@@ -45,7 +45,7 @@ Reference | Output  | IO Reg | Delay | Max Clk (Edge) | Process | Min Clk (Edge)
 Clock     | Port    | Type   | Type  |    to port(ns) | Corner  |    to port(ns) | Corner  | Clock    |
 ----------+---------+--------+-------+----------------+---------+----------------+---------+----------+
 clk       | p_o[6]  | FDCE   | -     |      2.427 (r) | SLOW    |      0.936 (r) | FAST    |          |
-clk       | p_o[7]  | FDCE   | -     |      2.390 (r) | SLOW    |      0.923 (r) | FAST    |          |
+clk       | p_o[7]  | FDCE   | -     |      2.427 (r) | SLOW    |      0.936 (r) | FAST    |          |
 clk       | p_o[8]  | FDCE   | -     |      2.427 (r) | SLOW    |      0.936 (r) | FAST    |          |
 clk       | p_o[9]  | FDCE   | -     |      2.427 (r) | SLOW    |      0.936 (r) | FAST    |          |
 clk       | p_o[10] | FDCE   | -     |      2.427 (r) | SLOW    |      0.936 (r) | FAST    |          |
@@ -63,14 +63,14 @@ Setup between Clocks
 Source | Destination |  Src:Rise     | Process |  Src:Rise     | Process |  Src:Fall     | Process |  Src:Fall     | Process |
 Clock  | Clock       | Dest:Rise(ns) | Corner  | Dest:Fall(ns) | Corner  | Dest:Rise(ns) | Corner  | Dest:Fall(ns) | Corner  |
 -------+-------------+---------------+---------+---------------+---------+---------------+---------+---------------+---------+
-clk    | clk         |         6.418 | SLOW    |               |         |               |         |               |         |
+clk    | clk         |         5.726 | SLOW    |               |         |               |         |               |         |
 -------+-------------+---------------+---------+---------------+---------+---------------+---------+---------------+---------+
 
 
 Setup / Hold times for input bus
 Clocked by: clk
-Worst Case Data Window: 0.449 ns
-Ideal Clock Offset to Actual Clock: 0.070 ns
+Worst Case Data Window: 0.402 ns
+Ideal Clock Offset to Actual Clock: 0.047 ns
 -------------------+------------+---------+------------+---------+-----------+-----------+---------------+
                    |            | Process |            | Process | Setup     |  Hold     | Source Offset |
 Source             |  Setup(ns) | Corner  |   Hold(ns) | Corner  | Slack(ns) | Slack(ns) | to Center(ns) |
@@ -78,35 +78,35 @@ Source             |  Setup(ns) | Corner  |   Hold(ns) | Corner  | Slack(ns) | S
 a_i[0]             |  0.141 (r) | SLOW    |  0.241 (r) | SLOW    |       inf |       inf |             - |
 a_i[1]             |  0.155 (r) | SLOW    |  0.229 (r) | SLOW    |       inf |       inf |             - |
 a_i[2]             |  0.135 (r) | SLOW    |  0.245 (r) | SLOW    |       inf |       inf |             - |
-a_i[3]             |  0.141 (r) | SLOW    |  0.241 (r) | SLOW    |       inf |       inf |             - |
-a_i[4]             |  0.105 (r) | SLOW    |  0.292 (r) | SLOW    |       inf |       inf |             - |
-a_i[5]             |  0.119 (r) | SLOW    |  0.281 (r) | SLOW    |       inf |       inf |             - |
-a_i[6]             |  0.102 (r) | SLOW    |  0.295 (r) | SLOW    |       inf |       inf |             - |
-a_i[7]             |  0.102 (r) | SLOW    |  0.295 (r) | SLOW    |       inf |       inf |             - |
+a_i[3]             |  0.132 (r) | SLOW    |  0.248 (r) | SLOW    |       inf |       inf |             - |
+a_i[4]             |  0.141 (r) | SLOW    |  0.241 (r) | SLOW    |       inf |       inf |             - |
+a_i[5]             |  0.155 (r) | SLOW    |  0.229 (r) | SLOW    |       inf |       inf |             - |
+a_i[6]             |  0.141 (r) | SLOW    |  0.241 (r) | SLOW    |       inf |       inf |             - |
+a_i[7]             |  0.135 (r) | SLOW    |  0.245 (r) | SLOW    |       inf |       inf |             - |
 -------------------+------------+---------+------------+---------+-----------+-----------+---------------+
-Worst Case Summary |  0.155 (r) | SLOW    |  0.295 (r) | SLOW    |       inf |       inf |             - |
+Worst Case Summary |  0.155 (r) | SLOW    |  0.248 (r) | SLOW    |       inf |       inf |             - |
 -------------------+------------+---------+------------+---------+-----------+-----------+---------------+
 
 
 
 Setup / Hold times for input bus
 Clocked by: clk
-Worst Case Data Window: 0.449 ns
-Ideal Clock Offset to Actual Clock: 0.070 ns
+Worst Case Data Window: 0.402 ns
+Ideal Clock Offset to Actual Clock: 0.047 ns
 -------------------+------------+---------+------------+---------+-----------+-----------+---------------+
                    |            | Process |            | Process | Setup     |  Hold     | Source Offset |
 Source             |  Setup(ns) | Corner  |   Hold(ns) | Corner  | Slack(ns) | Slack(ns) | to Center(ns) |
 -------------------+------------+---------+------------+---------+-----------+-----------+---------------+
-b_i[0]             |  0.105 (r) | SLOW    |  0.292 (r) | SLOW    |       inf |       inf |             - |
-b_i[1]             |  0.141 (r) | SLOW    |  0.241 (r) | SLOW    |       inf |       inf |             - |
-b_i[2]             |  0.119 (r) | SLOW    |  0.281 (r) | SLOW    |       inf |       inf |             - |
-b_i[3]             |  0.102 (r) | SLOW    |  0.295 (r) | SLOW    |       inf |       inf |             - |
-b_i[4]             |  0.155 (r) | SLOW    |  0.229 (r) | SLOW    |       inf |       inf |             - |
-b_i[5]             |  0.135 (r) | SLOW    |  0.245 (r) | SLOW    |       inf |       inf |             - |
-b_i[6]             |  0.132 (r) | SLOW    |  0.248 (r) | SLOW    |       inf |       inf |             - |
-b_i[7]             |  0.141 (r) | SLOW    |  0.241 (r) | SLOW    |       inf |       inf |             - |
+b_i[0]             |  0.141 (r) | SLOW    |  0.241 (r) | SLOW    |       inf |       inf |             - |
+b_i[1]             |  0.155 (r) | SLOW    |  0.229 (r) | SLOW    |       inf |       inf |             - |
+b_i[2]             |  0.141 (r) | SLOW    |  0.241 (r) | SLOW    |       inf |       inf |             - |
+b_i[3]             |  0.155 (r) | SLOW    |  0.229 (r) | SLOW    |       inf |       inf |             - |
+b_i[4]             |  0.135 (r) | SLOW    |  0.245 (r) | SLOW    |       inf |       inf |             - |
+b_i[5]             |  0.132 (r) | SLOW    |  0.248 (r) | SLOW    |       inf |       inf |             - |
+b_i[6]             |  0.135 (r) | SLOW    |  0.245 (r) | SLOW    |       inf |       inf |             - |
+b_i[7]             |  0.132 (r) | SLOW    |  0.248 (r) | SLOW    |       inf |       inf |             - |
 -------------------+------------+---------+------------+---------+-----------+-----------+---------------+
-Worst Case Summary |  0.155 (r) | SLOW    |  0.295 (r) | SLOW    |       inf |       inf |             - |
+Worst Case Summary |  0.155 (r) | SLOW    |  0.248 (r) | SLOW    |       inf |       inf |             - |
 -------------------+------------+---------+------------+---------+-----------+-----------+---------------+
 
 
@@ -125,7 +125,7 @@ p_o[3]             |           - | -       |          - | -       |        - |
 p_o[4]             |           - | -       |          - | -       |        - |
 p_o[5]             |           - | -       |          - | -       |        - |
 p_o[6]             |   2.427 (r) | SLOW    |  0.936 (r) | FAST    |    0.037 |
-p_o[7]             |   2.390 (r) | SLOW    |  0.923 (r) | FAST    |    0.000 |
+p_o[7]             |   2.427 (r) | SLOW    |  0.936 (r) | FAST    |    0.037 |
 p_o[8]             |   2.427 (r) | SLOW    |  0.936 (r) | FAST    |    0.037 |
 p_o[9]             |   2.427 (r) | SLOW    |  0.936 (r) | FAST    |    0.037 |
 p_o[10]            |   2.427 (r) | SLOW    |  0.936 (r) | FAST    |    0.037 |

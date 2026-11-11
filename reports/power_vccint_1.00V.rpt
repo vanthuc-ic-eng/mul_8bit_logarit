@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
-| Date             : Wed Nov 11 01:18:51 2026
+| Date             : Wed Nov 11 13:25:13 2026
 | Host             : ic-workstation running 64-bit Ubuntu 24.04.5 LTS
 | Command          : report_power -file reports/power_vccint_1.00V.rpt
 | Design           : lutalm_mul_s8_registered
@@ -53,11 +53,11 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |    <0.001 |        3 |       --- |             --- |
-| Slice Logic    |    <0.001 |       74 |       --- |             --- |
-|   LUT as Logic |    <0.001 |       36 |     17600 |            0.20 |
-|   Register     |    <0.001 |       26 |     35200 |            0.07 |
+| Slice Logic    |    <0.001 |       70 |       --- |             --- |
+|   LUT as Logic |    <0.001 |       34 |     17600 |            0.19 |
+|   Register     |    <0.001 |       25 |     35200 |            0.07 |
 |   Others       |     0.000 |        2 |       --- |             --- |
-| Signals        |    <0.001 |       52 |       --- |             --- |
+| Signals        |    <0.001 |       51 |       --- |             --- |
 | Static Power   |     0.090 |          |           |                 |
 | Total          |     0.091 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+

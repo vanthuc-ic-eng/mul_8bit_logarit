@@ -1,5 +1,5 @@
 {
-  "architecture": "v10_nano",
+  "architecture": "v10_nano_extreme",
   "total_cases": 65536,
   "incorrect_cases": 64748,
   "error_rate_pct": 98.7976,

@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
-| Date         : Wed Nov 11 01:18:52 2026
+| Date         : Wed Nov 11 13:25:14 2026
 | Host         : ic-workstation running 64-bit Ubuntu 24.04.5 LTS
 | Command      : report_high_fanout_nets -fanout_greater_than 5 -max_nets 20 -file reports/high_fanout_nets.rpt
 | Design       : lutalm_mul_s8_registered
@@ -16,23 +16,20 @@ High Fan-out Nets Information
 +-----------------+--------+-------------+
 | Net Name        | Fanout | Driver Type |
 +-----------------+--------+-------------+
-| p_o[15]_i_2_n_0 |     26 | LUT1        |
-| a_reg[7]        |     12 | FDCE        |
-| a_reg[4]        |     10 | FDCE        |
-| a_reg[6]        |     10 | FDCE        |
-| p_o[15]_i_3_n_0 |     10 | LUT3        |
-| p_o[15]_i_6_n_0 |     10 | LUT3        |
-| a_reg[5]        |      9 | FDCE        |
-| b_reg[7]        |      9 | FDCE        |
-| sel0[0]         |      8 | LUT3        |
-| sel0[1]         |      8 | LUT5        |
-| b_reg[4]        |      7 | FDCE        |
-| b_reg[6]        |      7 | FDCE        |
-| data1[0]        |      7 | LUT2        |
-| b_reg[5]        |      6 | FDCE        |
-| p_o[15]_i_8_n_0 |      6 | LUT4        |
-| b_reg[3]        |      6 | FDCE        |
-| a_reg[3]        |      6 | FDCE        |
+| p_o[15]_i_2_n_0 |     25 | LUT1        |
+| a_reg[7]        |     18 | FDCE        |
+| b_reg[7]        |     14 | FDCE        |
+| a_reg__0[4]     |     10 | FDCE        |
+| a_reg__0[5]     |     10 | FDCE        |
+| a_reg__0[6]     |     10 | FDCE        |
+| p_o[15]_i_3_n_0 |      9 | LUT6        |
+| p_o[12]_i_3_n_0 |      8 | LUT5        |
+| a_reg__0[3]     |      6 | FDCE        |
+| b_reg__0[3]     |      6 | FDCE        |
+| b_reg__0[4]     |      6 | FDCE        |
+| b_reg__0[5]     |      6 | FDCE        |
+| b_reg__0[6]     |      6 | FDCE        |
+| p_o[13]_i_5_n_0 |      6 | LUT4        |
 +-----------------+--------+-------------+
 
 
