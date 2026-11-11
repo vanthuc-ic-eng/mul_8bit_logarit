@@ -102,14 +102,16 @@ Successfully finished Verilog frontend.
 
 16. Executing HIERARCHY pass (managing design hierarchy).
 Parameter \MODE = 2
-Parameter \TRUNC_BITS = 6
 Parameter \OPERAND_ISOLATION = 1
+Parameter \TRUNC_BITS = 6
+Parameter \QUAD_CURV = 0
 
 17. Executing AST frontend in derive mode using pre-parsed AST for module `\lutalm_mul_s8'.
 Parameter \MODE = 2
-Parameter \TRUNC_BITS = 6
 Parameter \OPERAND_ISOLATION = 1
-Generating RTLIL representation for module `$paramod$d3430d2abff934068609a26cd774af04212ecfe9\lutalm_mul_s8'.
+Parameter \TRUNC_BITS = 6
+Parameter \QUAD_CURV = 0
+Generating RTLIL representation for module `$paramod$6b091eb32ee5849ca54ed19e46e28f3a29ec9f0b\lutalm_mul_s8'.
 
 17.1. Analyzing design hierarchy..
 Top module:  \lutalm_mul_s8
@@ -119,7 +121,7 @@ Top module:  \lutalm_mul_s8
 Removing unused module `\lut_inc_n'.
 Removing unused module `\lut_adder_n'.
 Removing unused module `\lutalm_mul_u8'.
-Removing unused module `$paramod$d3430d2abff934068609a26cd774af04212ecfe9\lutalm_mul_s8'.
+Removing unused module `$paramod$6b091eb32ee5849ca54ed19e46e28f3a29ec9f0b\lutalm_mul_s8'.
 Removing unused module `\lutalm_mul_s8_registered'.
 Removing unused module `\log_output_sign_s16'.
 Removing unused module `\log_normalizer_u8'.
@@ -148,75 +150,81 @@ Removed 0 unused modules.
 18.2. Executing PROC pass (convert processes to netlists).
 
 18.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
-Cleaned up 0 empty switches.
+Found and cleaned up 1 empty switch in `\lutalm_mul_s8.$proc$rtl/lutalm_mul_s8.v:128$191'.
+Cleaned up 1 empty switch.
 
 18.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
-Marked 12 switch rules as full_case in process $proc$rtl/lutalm_mul_s8.v:188$153 in module lutalm_mul_s8.
-Marked 1 switch rules as full_case in process $proc$rtl/lutalm_mul_s8.v:217$155 in module lutalm_mul_s8.
+Marked 1 switch rules as full_case in process $proc$rtl/lutalm_mul_s8.v:84$186 in module lutalm_mul_s8.
+Marked 1 switch rules as full_case in process $proc$rtl/lutalm_mul_s8.v:100$188 in module lutalm_mul_s8.
+Marked 7 switch rules as full_case in process $proc$rtl/lutalm_mul_s8.v:0$197 in module lutalm_mul_s8.
+Marked 7 switch rules as full_case in process $proc$rtl/lutalm_mul_s8.v:0$208 in module lutalm_mul_s8.
 Removed a total of 0 dead cases.
 
 18.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
 Removed 0 redundant assignments.
-Promoted 5 assignments to connections.
+Promoted 10 assignments to connections.
 
 18.2.4. Executing PROC_INIT pass (extract init attributes).
 
 18.2.5. Executing PROC_ARST pass (detect async resets in processes).
 
 18.2.6. Executing PROC_ROM pass (convert switches to ROMs).
-Converted 0 switches.
-<suppressed ~13 debug messages>
+Converted 1 switch.
+<suppressed ~15 debug messages>
 
 18.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
-Creating decoders for process `\lutalm_mul_s8.$proc$rtl/lutalm_mul_s8.v:188$153'.
-     1/24: $6\genblk1.gen_mode_nano_extreme.fb[0:0]
-     2/24: $6\genblk1.gen_mode_nano_extreme.kb[2:0]
-     3/24: $5\genblk1.gen_mode_nano_extreme.fb[0:0]
-     4/24: $5\genblk1.gen_mode_nano_extreme.kb[2:0]
-     5/24: $4\genblk1.gen_mode_nano_extreme.fb[0:0]
-     6/24: $4\genblk1.gen_mode_nano_extreme.kb[2:0]
-     7/24: $3\genblk1.gen_mode_nano_extreme.fb[0:0]
-     8/24: $3\genblk1.gen_mode_nano_extreme.kb[2:0]
-     9/24: $2\genblk1.gen_mode_nano_extreme.fb[0:0]
-    10/24: $2\genblk1.gen_mode_nano_extreme.kb[2:0]
-    11/24: $1\genblk1.gen_mode_nano_extreme.fb[0:0]
-    12/24: $1\genblk1.gen_mode_nano_extreme.kb[2:0]
-    13/24: $6\genblk1.gen_mode_nano_extreme.fa[0:0]
-    14/24: $6\genblk1.gen_mode_nano_extreme.ka[2:0]
-    15/24: $5\genblk1.gen_mode_nano_extreme.fa[0:0]
-    16/24: $5\genblk1.gen_mode_nano_extreme.ka[2:0]
-    17/24: $4\genblk1.gen_mode_nano_extreme.fa[0:0]
-    18/24: $4\genblk1.gen_mode_nano_extreme.ka[2:0]
-    19/24: $3\genblk1.gen_mode_nano_extreme.fa[0:0]
-    20/24: $3\genblk1.gen_mode_nano_extreme.ka[2:0]
-    21/24: $2\genblk1.gen_mode_nano_extreme.fa[0:0]
-    22/24: $2\genblk1.gen_mode_nano_extreme.ka[2:0]
-    23/24: $1\genblk1.gen_mode_nano_extreme.fa[0:0]
-    24/24: $1\genblk1.gen_mode_nano_extreme.ka[2:0]
-Creating decoders for process `\lutalm_mul_s8.$proc$rtl/lutalm_mul_s8.v:217$155'.
-     1/1: $1\genblk1.gen_mode_nano_extreme.raw_trunc[9:0]
+Creating decoders for process `\lutalm_mul_s8.$proc$rtl/lutalm_mul_s8.v:84$186'.
+     1/1: $1\mant_2f[5:0]
+Creating decoders for process `\lutalm_mul_s8.$proc$rtl/lutalm_mul_s8.v:100$188'.
+     1/1: $1\mant_comp_q4[5:0]
+Creating decoders for process `\lutalm_mul_s8.$proc$rtl/lutalm_mul_s8.v:128$191'.
+Creating decoders for process `\lutalm_mul_s8.$proc$rtl/lutalm_mul_s8.v:0$197'.
+     1/7: $7\log_encode_2f$func$rtl/lutalm_mul_s8.v:59$166.$result[4:0]$207
+     2/7: $6\log_encode_2f$func$rtl/lutalm_mul_s8.v:59$166.$result[4:0]$206
+     3/7: $5\log_encode_2f$func$rtl/lutalm_mul_s8.v:59$166.$result[4:0]$205
+     4/7: $4\log_encode_2f$func$rtl/lutalm_mul_s8.v:59$166.$result[4:0]$204
+     5/7: $3\log_encode_2f$func$rtl/lutalm_mul_s8.v:59$166.$result[4:0]$203
+     6/7: $2\log_encode_2f$func$rtl/lutalm_mul_s8.v:59$166.$result[4:0]$202
+     7/7: $1\log_encode_2f$func$rtl/lutalm_mul_s8.v:59$166.$result[4:0]$201
+Creating decoders for process `\lutalm_mul_s8.$proc$rtl/lutalm_mul_s8.v:0$208'.
+     1/7: $7\log_encode_2f$func$rtl/lutalm_mul_s8.v:60$167.$result[4:0]$218
+     2/7: $6\log_encode_2f$func$rtl/lutalm_mul_s8.v:60$167.$result[4:0]$217
+     3/7: $5\log_encode_2f$func$rtl/lutalm_mul_s8.v:60$167.$result[4:0]$216
+     4/7: $4\log_encode_2f$func$rtl/lutalm_mul_s8.v:60$167.$result[4:0]$215
+     5/7: $3\log_encode_2f$func$rtl/lutalm_mul_s8.v:60$167.$result[4:0]$214
+     6/7: $2\log_encode_2f$func$rtl/lutalm_mul_s8.v:60$167.$result[4:0]$213
+     7/7: $1\log_encode_2f$func$rtl/lutalm_mul_s8.v:60$167.$result[4:0]$212
 
 18.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
-No latch inferred for signal `\lutalm_mul_s8.\genblk1.gen_mode_nano_extreme.ka' from process `\lutalm_mul_s8.$proc$rtl/lutalm_mul_s8.v:188$153'.
-No latch inferred for signal `\lutalm_mul_s8.\genblk1.gen_mode_nano_extreme.kb' from process `\lutalm_mul_s8.$proc$rtl/lutalm_mul_s8.v:188$153'.
-No latch inferred for signal `\lutalm_mul_s8.\genblk1.gen_mode_nano_extreme.fa' from process `\lutalm_mul_s8.$proc$rtl/lutalm_mul_s8.v:188$153'.
-No latch inferred for signal `\lutalm_mul_s8.\genblk1.gen_mode_nano_extreme.fb' from process `\lutalm_mul_s8.$proc$rtl/lutalm_mul_s8.v:188$153'.
-No latch inferred for signal `\lutalm_mul_s8.\genblk1.gen_mode_nano_extreme.raw_trunc' from process `\lutalm_mul_s8.$proc$rtl/lutalm_mul_s8.v:217$155'.
+No latch inferred for signal `\lutalm_mul_s8.\mant_2f' from process `\lutalm_mul_s8.$proc$rtl/lutalm_mul_s8.v:84$186'.
+No latch inferred for signal `\lutalm_mul_s8.\mant_comp_q4' from process `\lutalm_mul_s8.$proc$rtl/lutalm_mul_s8.v:100$188'.
+No latch inferred for signal `\lutalm_mul_s8.\selected_q4' from process `\lutalm_mul_s8.$proc$rtl/lutalm_mul_s8.v:128$191'.
+No latch inferred for signal `\lutalm_mul_s8.\log_encode_2f$func$rtl/lutalm_mul_s8.v:59$164.$result' from process `\lutalm_mul_s8.$proc$rtl/lutalm_mul_s8.v:0$197'.
+No latch inferred for signal `\lutalm_mul_s8.\log_encode_2f$func$rtl/lutalm_mul_s8.v:59$166.$result' from process `\lutalm_mul_s8.$proc$rtl/lutalm_mul_s8.v:0$197'.
+No latch inferred for signal `\lutalm_mul_s8.\log_encode_2f$func$rtl/lutalm_mul_s8.v:59$166.x' from process `\lutalm_mul_s8.$proc$rtl/lutalm_mul_s8.v:0$197'.
+No latch inferred for signal `\lutalm_mul_s8.\log_encode_2f$func$rtl/lutalm_mul_s8.v:60$165.$result' from process `\lutalm_mul_s8.$proc$rtl/lutalm_mul_s8.v:0$208'.
+No latch inferred for signal `\lutalm_mul_s8.\log_encode_2f$func$rtl/lutalm_mul_s8.v:60$167.$result' from process `\lutalm_mul_s8.$proc$rtl/lutalm_mul_s8.v:0$208'.
+No latch inferred for signal `\lutalm_mul_s8.\log_encode_2f$func$rtl/lutalm_mul_s8.v:60$167.x' from process `\lutalm_mul_s8.$proc$rtl/lutalm_mul_s8.v:0$208'.
 
 18.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
 
 18.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
 
 18.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
-Found and cleaned up 12 empty switches in `\lutalm_mul_s8.$proc$rtl/lutalm_mul_s8.v:188$153'.
-Removing empty process `lutalm_mul_s8.$proc$rtl/lutalm_mul_s8.v:188$153'.
-Found and cleaned up 1 empty switch in `\lutalm_mul_s8.$proc$rtl/lutalm_mul_s8.v:217$155'.
-Removing empty process `lutalm_mul_s8.$proc$rtl/lutalm_mul_s8.v:217$155'.
-Cleaned up 13 empty switches.
+Found and cleaned up 1 empty switch in `\lutalm_mul_s8.$proc$rtl/lutalm_mul_s8.v:84$186'.
+Removing empty process `lutalm_mul_s8.$proc$rtl/lutalm_mul_s8.v:84$186'.
+Found and cleaned up 1 empty switch in `\lutalm_mul_s8.$proc$rtl/lutalm_mul_s8.v:100$188'.
+Removing empty process `lutalm_mul_s8.$proc$rtl/lutalm_mul_s8.v:100$188'.
+Removing empty process `lutalm_mul_s8.$proc$rtl/lutalm_mul_s8.v:128$191'.
+Found and cleaned up 7 empty switches in `\lutalm_mul_s8.$proc$rtl/lutalm_mul_s8.v:0$197'.
+Removing empty process `lutalm_mul_s8.$proc$rtl/lutalm_mul_s8.v:0$197'.
+Found and cleaned up 7 empty switches in `\lutalm_mul_s8.$proc$rtl/lutalm_mul_s8.v:0$208'.
+Removing empty process `lutalm_mul_s8.$proc$rtl/lutalm_mul_s8.v:0$208'.
+Cleaned up 16 empty switches.
 
 18.2.12. Executing OPT_EXPR pass (perform const folding).
 Optimizing module lutalm_mul_s8.
-<suppressed ~5 debug messages>
+<suppressed ~3 debug messages>
 
 18.3. Executing FLATTEN pass (flatten design).
 
@@ -225,8 +233,8 @@ Optimizing module lutalm_mul_s8.
 
 18.5. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \lutalm_mul_s8..
-Removed 3 unused cells and 133 unused wires.
-<suppressed ~5 debug messages>
+Removed 9 unused cells and 114 unused wires.
+<suppressed ~14 debug messages>
 
 18.6. Executing CHECK pass (checking for obvious problems).
 Checking module lutalm_mul_s8...
@@ -246,69 +254,53 @@ Removed a total of 1 cells.
 Running muxtree optimizer on module \lutalm_mul_s8..
   Creating internal representation of mux trees.
   Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $ternary$rtl/lutalm_mul_s8.v:36$174: \a_i -> { 1'0 \a_i [6:0] }
+      Replacing known input bits on port A of cell $ternary$rtl/lutalm_mul_s8.v:37$177: \b_i -> { 1'0 \b_i [6:0] }
   Analyzing evaluation results.
-    dead port 1/2 on $mux $procmux$163.
-    dead port 1/2 on $mux $procmux$166.
-    dead port 1/2 on $mux $procmux$169.
-    dead port 1/2 on $mux $procmux$172.
-    dead port 1/2 on $mux $procmux$175.
-    dead port 1/2 on $mux $procmux$181.
-    dead port 1/2 on $mux $procmux$184.
-    dead port 1/2 on $mux $procmux$187.
-    dead port 1/2 on $mux $procmux$190.
-    dead port 1/2 on $mux $procmux$193.
-    dead port 1/2 on $mux $procmux$199.
-    dead port 1/2 on $mux $procmux$202.
-    dead port 1/2 on $mux $procmux$205.
-    dead port 1/2 on $mux $procmux$208.
-    dead port 1/2 on $mux $procmux$214.
-    dead port 1/2 on $mux $procmux$217.
-    dead port 1/2 on $mux $procmux$220.
-    dead port 1/2 on $mux $procmux$223.
-    dead port 1/2 on $mux $procmux$229.
-    dead port 1/2 on $mux $procmux$232.
-    dead port 1/2 on $mux $procmux$235.
-    dead port 1/2 on $mux $procmux$241.
-    dead port 1/2 on $mux $procmux$244.
-    dead port 1/2 on $mux $procmux$247.
-    dead port 1/2 on $mux $procmux$253.
-    dead port 1/2 on $mux $procmux$256.
-    dead port 1/2 on $mux $procmux$262.
-    dead port 1/2 on $mux $procmux$265.
-    dead port 1/2 on $mux $procmux$271.
-    dead port 1/2 on $mux $procmux$277.
-    dead port 1/2 on $mux $procmux$289.
-    dead port 1/2 on $mux $procmux$292.
-    dead port 1/2 on $mux $procmux$295.
-    dead port 1/2 on $mux $procmux$298.
-    dead port 1/2 on $mux $procmux$301.
-    dead port 1/2 on $mux $procmux$307.
-    dead port 1/2 on $mux $procmux$310.
-    dead port 1/2 on $mux $procmux$313.
-    dead port 1/2 on $mux $procmux$316.
-    dead port 1/2 on $mux $procmux$319.
-    dead port 1/2 on $mux $procmux$325.
-    dead port 1/2 on $mux $procmux$328.
-    dead port 1/2 on $mux $procmux$331.
-    dead port 1/2 on $mux $procmux$334.
-    dead port 1/2 on $mux $procmux$340.
-    dead port 1/2 on $mux $procmux$343.
-    dead port 1/2 on $mux $procmux$346.
-    dead port 1/2 on $mux $procmux$349.
-    dead port 1/2 on $mux $procmux$355.
-    dead port 1/2 on $mux $procmux$358.
-    dead port 1/2 on $mux $procmux$361.
-    dead port 1/2 on $mux $procmux$367.
-    dead port 1/2 on $mux $procmux$370.
-    dead port 1/2 on $mux $procmux$373.
-    dead port 1/2 on $mux $procmux$379.
-    dead port 1/2 on $mux $procmux$382.
-    dead port 1/2 on $mux $procmux$388.
-    dead port 1/2 on $mux $procmux$391.
-    dead port 1/2 on $mux $procmux$397.
-    dead port 1/2 on $mux $procmux$403.
-Removed 60 multiplexer ports.
-<suppressed ~8 debug messages>
+    dead port 1/2 on $mux $procmux$233.
+    dead port 1/2 on $mux $procmux$236.
+    dead port 1/2 on $mux $procmux$239.
+    dead port 1/2 on $mux $procmux$242.
+    dead port 1/2 on $mux $procmux$245.
+    dead port 1/2 on $mux $procmux$248.
+    dead port 1/2 on $mux $procmux$254.
+    dead port 1/2 on $mux $procmux$257.
+    dead port 1/2 on $mux $procmux$260.
+    dead port 1/2 on $mux $procmux$263.
+    dead port 1/2 on $mux $procmux$266.
+    dead port 1/2 on $mux $procmux$272.
+    dead port 1/2 on $mux $procmux$275.
+    dead port 1/2 on $mux $procmux$278.
+    dead port 1/2 on $mux $procmux$281.
+    dead port 1/2 on $mux $procmux$287.
+    dead port 1/2 on $mux $procmux$290.
+    dead port 1/2 on $mux $procmux$293.
+    dead port 1/2 on $mux $procmux$299.
+    dead port 1/2 on $mux $procmux$302.
+    dead port 1/2 on $mux $procmux$308.
+    dead port 1/2 on $mux $procmux$317.
+    dead port 1/2 on $mux $procmux$320.
+    dead port 1/2 on $mux $procmux$323.
+    dead port 1/2 on $mux $procmux$326.
+    dead port 1/2 on $mux $procmux$329.
+    dead port 1/2 on $mux $procmux$332.
+    dead port 1/2 on $mux $procmux$338.
+    dead port 1/2 on $mux $procmux$341.
+    dead port 1/2 on $mux $procmux$344.
+    dead port 1/2 on $mux $procmux$347.
+    dead port 1/2 on $mux $procmux$350.
+    dead port 1/2 on $mux $procmux$356.
+    dead port 1/2 on $mux $procmux$359.
+    dead port 1/2 on $mux $procmux$362.
+    dead port 1/2 on $mux $procmux$365.
+    dead port 1/2 on $mux $procmux$371.
+    dead port 1/2 on $mux $procmux$374.
+    dead port 1/2 on $mux $procmux$377.
+    dead port 1/2 on $mux $procmux$383.
+    dead port 1/2 on $mux $procmux$386.
+    dead port 1/2 on $mux $procmux$392.
+Removed 42 multiplexer ports.
+<suppressed ~6 debug messages>
 
 18.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \lutalm_mul_s8.
@@ -322,8 +314,8 @@ Removed a total of 0 cells.
 
 18.7.7. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \lutalm_mul_s8..
-Removed 0 unused cells and 61 unused wires.
-<suppressed ~1 debug messages>
+Removed 0 unused cells and 49 unused wires.
+<suppressed ~7 debug messages>
 
 18.7.8. Executing OPT_EXPR pass (perform const folding).
 Optimizing module lutalm_mul_s8.
@@ -336,7 +328,7 @@ Running muxtree optimizer on module \lutalm_mul_s8..
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
 Removed 0 multiplexer ports.
-<suppressed ~8 debug messages>
+<suppressed ~6 debug messages>
 
 18.7.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \lutalm_mul_s8.
@@ -390,7 +382,7 @@ Running muxtree optimizer on module \lutalm_mul_s8..
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
 Removed 0 multiplexer ports.
-<suppressed ~8 debug messages>
+<suppressed ~6 debug messages>
 
 18.9.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \lutalm_mul_s8.
@@ -411,40 +403,67 @@ Optimizing module lutalm_mul_s8.
 18.9.9. Finished OPT passes. (There is nothing left to do.)
 
 18.10. Executing WREDUCE pass (reducing word size of cells).
-Removed top 2 bits (of 3) from mux cell lutalm_mul_s8.$procmux$178 ($mux).
-Removed top 1 bits (of 3) from mux cell lutalm_mul_s8.$procmux$211 ($mux).
-Removed top 1 bits (of 3) from mux cell lutalm_mul_s8.$procmux$238 ($mux).
-Removed top 2 bits (of 3) from mux cell lutalm_mul_s8.$procmux$304 ($mux).
-Removed top 1 bits (of 4) from port B of cell lutalm_mul_s8.$procmux$422_CMP5 ($eq).
-Removed top 1 bits (of 4) from port B of cell lutalm_mul_s8.$procmux$422_CMP4 ($eq).
-Removed top 2 bits (of 4) from port B of cell lutalm_mul_s8.$procmux$422_CMP3 ($eq).
-Removed top 2 bits (of 4) from port B of cell lutalm_mul_s8.$procmux$422_CMP2 ($eq).
-Removed top 3 bits (of 4) from port B of cell lutalm_mul_s8.$procmux$422_CMP1 ($eq).
-Removed top 1 bits (of 4) from port B of cell lutalm_mul_s8.$procmux$421_CMP0 ($eq).
-Removed top 1 bits (of 4) from port B of cell lutalm_mul_s8.$procmux$420_CMP0 ($eq).
-Removed top 7 bits (of 8) from port B of cell lutalm_mul_s8.$eq$rtl/lutalm_mul_s8.v:179$145 ($eq).
-Removed top 7 bits (of 8) from port B of cell lutalm_mul_s8.$eq$rtl/lutalm_mul_s8.v:180$147 ($eq).
-Removed top 1 bits (of 3) from wire lutalm_mul_s8.$4\genblk1.gen_mode_nano_extreme.kb[2:0].
-Removed top 1 bits (of 3) from wire lutalm_mul_s8.$5\genblk1.gen_mode_nano_extreme.kb[2:0].
-Removed top 2 bits (of 3) from wire lutalm_mul_s8.$6\genblk1.gen_mode_nano_extreme.ka[2:0].
-Removed top 2 bits (of 3) from wire lutalm_mul_s8.$6\genblk1.gen_mode_nano_extreme.kb[2:0].
-Removed top 1 bits (of 6) from wire lutalm_mul_s8.genblk1.gen_mode_nano_extreme.mant_w.
+Removed top 28 address bits (of 32) from memory init port lutalm_mul_s8.$auto$mem.cc:319:emit$222 ($auto$proc_rom.cc:150:do_switch$220).
+Removed top 2 bits (of 5) from mux cell lutalm_mul_s8.$procmux$230 ($mux).
+Removed top 1 bits (of 5) from mux cell lutalm_mul_s8.$procmux$251 ($mux).
+Removed top 1 bits (of 5) from mux cell lutalm_mul_s8.$procmux$269 ($mux).
+Removed top 2 bits (of 5) from mux cell lutalm_mul_s8.$procmux$314 ($mux).
+Removed top 1 bits (of 5) from mux cell lutalm_mul_s8.$procmux$335 ($mux).
+Removed top 1 bits (of 5) from mux cell lutalm_mul_s8.$procmux$353 ($mux).
+Removed top 7 bits (of 8) from port B of cell lutalm_mul_s8.$add$rtl/lutalm_mul_s8.v:36$173 ($add).
+Removed top 7 bits (of 8) from port B of cell lutalm_mul_s8.$add$rtl/lutalm_mul_s8.v:37$176 ($add).
+Removed top 1 bits (of 4) from port A of cell lutalm_mul_s8.$add$rtl/lutalm_mul_s8.v:123$189 ($add).
+Removed top 1 bits (of 4) from port B of cell lutalm_mul_s8.$add$rtl/lutalm_mul_s8.v:123$189 ($add).
+Removed top 14 bits (of 20) from port A of cell lutalm_mul_s8.$shl$rtl/lutalm_mul_s8.v:124$190 ($shl).
+Removed top 16 bits (of 20) from port B of cell lutalm_mul_s8.$add$rtl/lutalm_mul_s8.v:136$192 ($add).
+Converting cell lutalm_mul_s8.$neg$rtl/lutalm_mul_s8.v:141$194 ($neg) from signed to unsigned.
+Removed top 1 bits (of 17) from port A of cell lutalm_mul_s8.$neg$rtl/lutalm_mul_s8.v:141$194 ($neg).
+Removed top 1 bits (of 17) from mux cell lutalm_mul_s8.$ternary$rtl/lutalm_mul_s8.v:141$195 ($mux).
+Removed top 1 bits (of 17) from port Y of cell lutalm_mul_s8.$neg$rtl/lutalm_mul_s8.v:141$194 ($neg).
+Removed top 1 bits (of 5) from wire lutalm_mul_s8.$5\log_encode_2f$func$rtl/lutalm_mul_s8.v:59$166.$result[4:0]$205.
+Removed top 1 bits (of 5) from wire lutalm_mul_s8.$5\log_encode_2f$func$rtl/lutalm_mul_s8.v:60$167.$result[4:0]$216.
+Removed top 1 bits (of 5) from wire lutalm_mul_s8.$6\log_encode_2f$func$rtl/lutalm_mul_s8.v:59$166.$result[4:0]$206.
+Removed top 1 bits (of 5) from wire lutalm_mul_s8.$6\log_encode_2f$func$rtl/lutalm_mul_s8.v:60$167.$result[4:0]$217.
+Removed top 2 bits (of 5) from wire lutalm_mul_s8.$7\log_encode_2f$func$rtl/lutalm_mul_s8.v:59$166.$result[4:0]$207.
+Removed top 2 bits (of 5) from wire lutalm_mul_s8.$7\log_encode_2f$func$rtl/lutalm_mul_s8.v:60$167.$result[4:0]$218.
+Removed top 1 bits (of 17) from wire lutalm_mul_s8.$neg$rtl/lutalm_mul_s8.v:141$194_Y.
+Removed top 2 bits (of 8) from wire lutalm_mul_s8.$not$rtl/lutalm_mul_s8.v:36$172_Y.
+Removed top 1 bits (of 17) from wire lutalm_mul_s8.signed_product.
 
 18.11. Executing PEEPOPT pass (run peephole optimizers).
 
 18.12. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \lutalm_mul_s8..
-Removed 0 unused cells and 5 unused wires.
+Removed 0 unused cells and 9 unused wires.
 <suppressed ~1 debug messages>
 
 18.13. Executing ALUMACC pass (create $alu and $macc cells).
 Extracting $alu and $macc cells in module lutalm_mul_s8:
-  creating $macc model for $add$rtl/lutalm_mul_s8.v:208$154 ($add).
-  creating $alu model for $macc $add$rtl/lutalm_mul_s8.v:208$154.
-  creating $alu cell for $add$rtl/lutalm_mul_s8.v:208$154: $auto$alumacc.cc:485:replace_alu$428
-  created 1 $alu and 0 $macc cells.
+  creating $macc model for $add$rtl/lutalm_mul_s8.v:123$189 ($add).
+  creating $macc model for $add$rtl/lutalm_mul_s8.v:136$192 ($add).
+  creating $macc model for $add$rtl/lutalm_mul_s8.v:36$173 ($add).
+  creating $macc model for $add$rtl/lutalm_mul_s8.v:37$176 ($add).
+  creating $macc model for $neg$rtl/lutalm_mul_s8.v:141$194 ($neg).
+  creating $alu model for $macc $neg$rtl/lutalm_mul_s8.v:141$194.
+  creating $alu model for $macc $add$rtl/lutalm_mul_s8.v:37$176.
+  creating $alu model for $macc $add$rtl/lutalm_mul_s8.v:36$173.
+  creating $alu model for $macc $add$rtl/lutalm_mul_s8.v:136$192.
+  creating $alu model for $macc $add$rtl/lutalm_mul_s8.v:123$189.
+  creating $alu cell for $add$rtl/lutalm_mul_s8.v:123$189: $auto$alumacc.cc:485:replace_alu$406
+  creating $alu cell for $add$rtl/lutalm_mul_s8.v:136$192: $auto$alumacc.cc:485:replace_alu$409
+  creating $alu cell for $add$rtl/lutalm_mul_s8.v:36$173: $auto$alumacc.cc:485:replace_alu$412
+  creating $alu cell for $add$rtl/lutalm_mul_s8.v:37$176: $auto$alumacc.cc:485:replace_alu$415
+  creating $alu cell for $neg$rtl/lutalm_mul_s8.v:141$194: $auto$alumacc.cc:485:replace_alu$418
+  created 5 $alu and 0 $macc cells.
 
 18.14. Executing SHARE pass (SAT-based resource sharing).
+Found 2 cells in module lutalm_mul_s8 that may be considered for resource sharing.
+  Analyzing resource sharing options for $shl$rtl/lutalm_mul_s8.v:124$190 ($shl):
+    Found 1 activation_patterns using ctrl signal \zero_p.
+    No candidates found.
+  Analyzing resource sharing options for $auto$mem.cc:273:emit$221 ($memrd_v2):
+    Found 1 activation_patterns using ctrl signal \zero_p.
+    No candidates found.
 
 18.15. Executing OPT pass (performing simple optimizations).
 
@@ -461,7 +480,7 @@ Running muxtree optimizer on module \lutalm_mul_s8..
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
 Removed 0 multiplexer ports.
-<suppressed ~8 debug messages>
+<suppressed ~6 debug messages>
 
 18.15.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \lutalm_mul_s8.
@@ -494,6 +513,8 @@ Performed a total of 0 transformations.
 18.16.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
 
 18.16.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+Checking read port `$auto$proc_rom.cc:150:do_switch$220'[0] in module `\lutalm_mul_s8': no output FF found.
+Checking read port address `$auto$proc_rom.cc:150:do_switch$220'[0] in module `\lutalm_mul_s8': no address FF found.
 
 18.16.6. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \lutalm_mul_s8..
@@ -515,7 +536,7 @@ Finding unused cells or wires in module \lutalm_mul_s8..
 
 18.18.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module lutalm_mul_s8.
-<suppressed ~5 debug messages>
+<suppressed ~2 debug messages>
 
 18.18.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\lutalm_mul_s8'.
@@ -525,12 +546,14 @@ Removed a total of 0 cells.
 
 18.18.4. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \lutalm_mul_s8..
-Removed 0 unused cells and 2 unused wires.
-<suppressed ~1 debug messages>
 
 18.18.5. Finished fast OPT passes.
 
 18.19. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+Mapping memory $auto$proc_rom.cc:150:do_switch$220 in module \lutalm_mul_s8:
+  created 16 $dff cells and 0 static cells of width 6.
+  read interface: 0 $dff and 15 $mux cells.
+  write interface: 0 write mux blocks.
 
 18.20. Executing OPT pass (performing simple optimizations).
 
@@ -547,25 +570,66 @@ Running muxtree optimizer on module \lutalm_mul_s8..
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
 Removed 0 multiplexer ports.
-<suppressed ~8 debug messages>
+<suppressed ~7 debug messages>
 
 18.20.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \lutalm_mul_s8.
-    Consolidated identical input bits for $mux cell $procmux$337:
-      Old ports: A={ 2'00 \genblk1.gen_mode_nano_extreme.mag_a [1] }, B=3'010, Y=$5\genblk1.gen_mode_nano_extreme.ka[2:0]
-      New ports: A={ 1'0 \genblk1.gen_mode_nano_extreme.mag_a [1] }, B=2'10, Y=$5\genblk1.gen_mode_nano_extreme.ka[2:0] [1:0]
-      New connections: $5\genblk1.gen_mode_nano_extreme.ka[2:0] [2] = 1'0
+    Consolidated identical input bits for $mux cell $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][3][6]$462:
+      Old ports: A=6'011100, B=6'100011, Y=$memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][3]$a$442
+      New ports: A=2'10, B=2'01, Y={ $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][3]$a$442 [2] $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][3]$a$442 [0] }
+      New connections: { $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][3]$a$442 [5:3] $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][3]$a$442 [1] } = { $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][3]$a$442 [0] $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][3]$a$442 [2] $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][3]$a$442 [2] $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][3]$a$442 [0] }
+    Consolidated identical input bits for $mux cell $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][3][5]$459:
+      Old ports: A=6'100100, B=6'101010, Y=$memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][2]$b$440
+      New ports: A=2'10, B=2'01, Y=$memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][2]$b$440 [2:1]
+      New connections: { $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][2]$b$440 [5:3] $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][2]$b$440 [0] } = { 2'10 $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][2]$b$440 [1] 1'0 }
+    Consolidated identical input bits for $mux cell $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][3][4]$456:
+      Old ports: A=6'011000, B=6'011110, Y=$memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][2]$a$439
+      New ports: A=1'0, B=1'1, Y=$memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][2]$a$439 [1]
+      New connections: { $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][2]$a$439 [5:2] $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][2]$a$439 [0] } = { 3'011 $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][2]$a$439 [1] 1'0 }
+    Consolidated identical input bits for $mux cell $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][3][3]$453:
+      Old ports: A=6'011110, B=6'100011, Y=$memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][1]$b$437
+      New ports: A=2'10, B=2'01, Y={ $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][1]$b$437 [2] $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][1]$b$437 [0] }
+      New connections: { $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][1]$b$437 [5:3] $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][1]$b$437 [1] } = { $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][1]$b$437 [0] $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][1]$b$437 [2] $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][1]$b$437 [2] 1'1 }
+    Consolidated identical input bits for $mux cell $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][3][2]$450:
+      Old ports: A=6'010100, B=6'011001, Y=$memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][1]$a$436
+      New ports: A=2'10, B=2'01, Y={ $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][1]$a$436 [2] $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][1]$a$436 [0] }
+      New connections: { $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][1]$a$436 [5:3] $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][1]$a$436 [1] } = { 2'01 $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][1]$a$436 [0] 1'0 }
+    Consolidated identical input bits for $mux cell $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][3][1]$447:
+      Old ports: A=6'011000, B=6'011100, Y=$memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][0]$b$434
+      New ports: A=1'0, B=1'1, Y=$memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][0]$b$434 [2]
+      New connections: { $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][0]$b$434 [5:3] $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][0]$b$434 [1:0] } = 5'01100
+    Consolidated identical input bits for $mux cell $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][3][0]$444:
+      Old ports: A=6'010000, B=6'010100, Y=$memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][0]$a$433
+      New ports: A=1'0, B=1'1, Y=$memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][0]$a$433 [2]
+      New connections: { $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][0]$a$433 [5:3] $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][0]$a$433 [1:0] } = 5'01000
+    Consolidated identical input bits for $mux cell $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][3][7]$465:
+      Old ports: A=6'101010, B=6'110001, Y=$memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][3]$b$443
+      New ports: A=2'10, B=2'01, Y=$memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][3]$b$443 [1:0]
+      New connections: $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][3]$b$443 [5:2] = { 1'1 $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][3]$b$443 [0] $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][3]$b$443 [1] 1'0 }
+    Consolidated identical input bits for $mux cell $procmux$230:
+      Old ports: A=3'000, B={ 1'1 \abs_a [0] 1'0 }, Y=$7\log_encode_2f$func$rtl/lutalm_mul_s8.v:59$166.$result[4:0]$207
+      New ports: A=2'00, B={ 1'1 \abs_a [0] }, Y=$7\log_encode_2f$func$rtl/lutalm_mul_s8.v:59$166.$result[4:0]$207 [2:1]
+      New connections: $7\log_encode_2f$func$rtl/lutalm_mul_s8.v:59$166.$result[4:0]$207 [0] = 1'0
+    Consolidated identical input bits for $mux cell $procmux$314:
+      Old ports: A=3'000, B={ 1'1 \abs_b [0] 1'0 }, Y=$7\log_encode_2f$func$rtl/lutalm_mul_s8.v:60$167.$result[4:0]$218
+      New ports: A=2'00, B={ 1'1 \abs_b [0] }, Y=$7\log_encode_2f$func$rtl/lutalm_mul_s8.v:60$167.$result[4:0]$218 [2:1]
+      New connections: $7\log_encode_2f$func$rtl/lutalm_mul_s8.v:60$167.$result[4:0]$218 [0] = 1'0
   Optimizing cells in module \lutalm_mul_s8.
-    Consolidated identical input bits for $mux cell $procmux$364:
-      Old ports: A=$5\genblk1.gen_mode_nano_extreme.ka[2:0], B=3'011, Y=$4\genblk1.gen_mode_nano_extreme.ka[2:0]
-      New ports: A=$5\genblk1.gen_mode_nano_extreme.ka[2:0] [1:0], B=2'11, Y=$4\genblk1.gen_mode_nano_extreme.ka[2:0] [1:0]
-      New connections: $4\genblk1.gen_mode_nano_extreme.ka[2:0] [2] = 1'0
+    Consolidated identical input bits for $mux cell $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][2]$438:
+      Old ports: A=$memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][2]$a$439, B=$memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][2]$b$440, Y=$memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][1][1]$a$430
+      New ports: A={ 3'011 $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][2]$a$439 [1] $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][2]$a$439 [1] }, B={ 2'10 $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][2]$b$440 [1] $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][2]$b$440 [2:1] }, Y=$memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][1][1]$a$430 [5:1]
+      New connections: $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][1][1]$a$430 [0] = 1'0
+    Consolidated identical input bits for $mux cell $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][0]$432:
+      Old ports: A=$memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][0]$a$433, B=$memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][0]$b$434, Y=$memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][1][0]$a$427
+      New ports: A={ 1'0 $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][0]$a$433 [2] }, B={ 1'1 $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][0]$b$434 [2] }, Y=$memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][1][0]$a$427 [3:2]
+      New connections: { $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][1][0]$a$427 [5:4] $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][1][0]$a$427 [1:0] } = 4'0100
   Optimizing cells in module \lutalm_mul_s8.
-Performed a total of 2 changes.
+Performed a total of 12 changes.
 
 18.20.5. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\lutalm_mul_s8'.
-Removed a total of 0 cells.
+<suppressed ~18 debug messages>
+Removed a total of 6 cells.
 
 18.20.6. Executing OPT_SHARE pass.
 
@@ -573,9 +637,12 @@ Removed a total of 0 cells.
 
 18.20.8. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \lutalm_mul_s8..
+Removed 0 unused cells and 22 unused wires.
+<suppressed ~1 debug messages>
 
 18.20.9. Executing OPT_EXPR pass (perform const folding).
 Optimizing module lutalm_mul_s8.
+<suppressed ~1 debug messages>
 
 18.20.10. Rerunning OPT passes. (Maybe there is more to do..)
 
@@ -589,7 +656,20 @@ Removed 0 multiplexer ports.
 
 18.20.12. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \lutalm_mul_s8.
-Performed a total of 0 changes.
+    Consolidated identical input bits for $mux cell $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][0]$432:
+      Old ports: A={ 1'0 $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][0]$a$433 [2] }, B={ 1'1 $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][0]$a$433 [2] }, Y=$memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][1][0]$a$427 [3:2]
+      New ports: A=1'0, B=1'1, Y=$memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][1][0]$a$427 [3]
+      New connections: $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][1][0]$a$427 [2] = \enc_b [0]
+    Consolidated identical input bits for $mux cell $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][1]$435:
+      Old ports: A={ 2'01 $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][1]$a$436 [3:2] 1'0 $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][1]$a$436 [3] }, B={ $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][1]$a$436 [3:2] $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][1]$a$436 [2] $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][1]$a$436 [2] 1'1 $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][1]$a$436 [3] }, Y=$memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][1][0]$b$428
+      New ports: A={ 2'01 $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][1]$a$436 [3] 1'0 }, B={ $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][1]$a$436 [3:2] $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][1]$a$436 [2] 1'1 }, Y={ $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][1][0]$b$428 [5:3] $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][1][0]$b$428 [1] }
+      New connections: { $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][1][0]$b$428 [2] $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][1][0]$b$428 [0] } = { $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][1]$a$436 [2] $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][1]$a$436 [3] }
+    Consolidated identical input bits for $mux cell $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][3]$441:
+      Old ports: A={ $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][1]$a$436 [3:2] $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][1]$a$436 [2] $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][1]$a$436 [2] $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][1]$a$436 [3] $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][1]$a$436 [3] }, B={ 1'1 $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][1]$a$436 [3:2] 1'0 $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][1]$a$436 [2] $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][1]$a$436 [3] }, Y=$memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][1][1]$b$431
+      New ports: A={ $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][1]$a$436 [3:2] $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][1]$a$436 [2] $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][1]$a$436 [3] }, B={ 1'1 $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][1]$a$436 [3] 1'0 $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][1]$a$436 [2] }, Y={ $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][1][1]$b$431 [5:4] $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][1][1]$b$431 [2:1] }
+      New connections: { $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][1][1]$b$431 [3] $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][1][1]$b$431 [0] } = { $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][1]$a$436 [2] $memory$auto$proc_rom.cc:150:do_switch$220$rdmux[0][2][1]$a$436 [3] }
+  Optimizing cells in module \lutalm_mul_s8.
+Performed a total of 3 changes.
 
 18.20.13. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\lutalm_mul_s8'.
@@ -601,11 +681,72 @@ Removed a total of 0 cells.
 
 18.20.16. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \lutalm_mul_s8..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
 
 18.20.17. Executing OPT_EXPR pass (perform const folding).
 Optimizing module lutalm_mul_s8.
+<suppressed ~1 debug messages>
 
-18.20.18. Finished OPT passes. (There is nothing left to do.)
+18.20.18. Rerunning OPT passes. (Maybe there is more to do..)
+
+18.20.19. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \lutalm_mul_s8..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~8 debug messages>
+
+18.20.20. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \lutalm_mul_s8.
+Performed a total of 0 changes.
+
+18.20.21. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\lutalm_mul_s8'.
+Removed a total of 0 cells.
+
+18.20.22. Executing OPT_SHARE pass.
+
+18.20.23. Executing OPT_DFF pass (perform DFF optimizations).
+
+18.20.24. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \lutalm_mul_s8..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+18.20.25. Executing OPT_EXPR pass (perform const folding).
+Optimizing module lutalm_mul_s8.
+
+18.20.26. Rerunning OPT passes. (Maybe there is more to do..)
+
+18.20.27. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \lutalm_mul_s8..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~8 debug messages>
+
+18.20.28. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \lutalm_mul_s8.
+Performed a total of 0 changes.
+
+18.20.29. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\lutalm_mul_s8'.
+Removed a total of 0 cells.
+
+18.20.30. Executing OPT_SHARE pass.
+
+18.20.31. Executing OPT_DFF pass (perform DFF optimizations).
+
+18.20.32. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \lutalm_mul_s8..
+
+18.20.33. Executing OPT_EXPR pass (perform const folding).
+Optimizing module lutalm_mul_s8.
+
+18.20.34. Finished OPT passes. (There is nothing left to do.)
 
 18.21. Executing TECHMAP pass (map to technology primitives).
 
@@ -638,46 +779,51 @@ Generating RTLIL representation for module `\_90_lut'.
 Successfully finished Verilog frontend.
 
 18.21.2. Continuing TECHMAP pass.
-Using extmapper simplemap for cells of type $and.
-Using template $paramod$b85fbb3374a1d9ba7ee4f4d6323c30f939df3ada\_90_alu for cells of type $alu.
 Using extmapper simplemap for cells of type $mux.
-Using extmapper simplemap for cells of type $eq.
-Using template $paramod$f25e08d27ab464ccab67f5ad90182b05ecac07b7\_90_pmux for cells of type $pmux.
-Using extmapper simplemap for cells of type $reduce_or.
-Using extmapper simplemap for cells of type $logic_not.
+Using template $paramod$0563fff2c395e9892f21c131fa33d5e0ad144e72\_90_alu for cells of type $alu.
 Using extmapper simplemap for cells of type $xor.
-Using extmapper simplemap for cells of type $or.
+Using extmapper simplemap for cells of type $logic_not.
+Using extmapper simplemap for cells of type $logic_or.
 Using extmapper simplemap for cells of type $not.
+Using template $paramod$c3cd1564c35d873179656addd6052d7ea8b6d991\_90_alu for cells of type $alu.
+Using template $paramod$02488ff6fa51b28bbfa470bdd9b0e548b3357746\_90_alu for cells of type $alu.
 Using extmapper simplemap for cells of type $logic_and.
-Using template $paramod\_90_lcu\WIDTH=32'00000000000000000000000000000101 for cells of type $lcu.
+Using template $paramod$constmap:b1d2af2044071e0d75551a3773b4bca35f42a50b$paramod$0979110b58b40182835cb608c11dad27017ad658\_90_shift_ops_shr_shl_sshl_sshr for cells of type $shl.
+Using template $paramod$18205a5da979f93ffab44671dcc4a48cf14e25e2\_90_alu for cells of type $alu.
 Using extmapper simplemap for cells of type $pos.
+Using template $paramod\_90_lcu\WIDTH=32'00000000000000000000000000001000 for cells of type $lcu.
+Using extmapper simplemap for cells of type $and.
+Using template $paramod\_90_lcu\WIDTH=32'00000000000000000000000000000100 for cells of type $lcu.
+Using template $paramod\_90_lcu\WIDTH=32'00000000000000000000000000010000 for cells of type $lcu.
+Using template $paramod\_90_lcu\WIDTH=32'00000000000000000000000000010001 for cells of type $lcu.
+Using extmapper simplemap for cells of type $or.
 No more expansions possible.
-<suppressed ~316 debug messages>
+<suppressed ~1131 debug messages>
 
 18.22. Executing OPT pass (performing simple optimizations).
 
 18.22.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module lutalm_mul_s8.
-<suppressed ~259 debug messages>
+<suppressed ~318 debug messages>
 
 18.22.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\lutalm_mul_s8'.
-<suppressed ~207 debug messages>
-Removed a total of 69 cells.
+<suppressed ~12 debug messages>
+Removed a total of 4 cells.
 
 18.22.3. Executing OPT_DFF pass (perform DFF optimizations).
 
 18.22.4. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \lutalm_mul_s8..
-Removed 6 unused cells and 170 unused wires.
-<suppressed ~7 debug messages>
+Removed 34 unused cells and 258 unused wires.
+<suppressed ~35 debug messages>
 
 18.22.5. Finished fast OPT passes.
 
 18.23. Executing ABC pass (technology mapping using ABC).
 
 18.23.1. Extracting gate netlist of module `\lutalm_mul_s8' to `<abc-temp-dir>/input.blif'..
-Extracted 268 gates and 286 wires to a netlist network with 16 inputs and 10 outputs.
+Extracted 374 gates and 392 wires to a netlist network with 16 inputs and 16 outputs.
 
 18.23.1.1. Executing ABC.
 Running ABC command: "<yosys-exe-dir>/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
@@ -692,36 +838,38 @@ ABC: + map
 ABC: + write_blif <abc-temp-dir>/output.blif 
 
 18.23.1.2. Re-integrating ABC results.
-ABC RESULTS:              NAND cells:        7
-ABC RESULTS:               AND cells:        7
-ABC RESULTS:              XNOR cells:       15
-ABC RESULTS:               NOT cells:        8
-ABC RESULTS:             ORNOT cells:       11
+ABC RESULTS:              XNOR cells:        4
+ABC RESULTS:               AND cells:        4
 ABC RESULTS:               NOR cells:       16
-ABC RESULTS:                OR cells:       64
-ABC RESULTS:               MUX cells:       11
-ABC RESULTS:               XOR cells:       17
-ABC RESULTS:            ANDNOT cells:       71
-ABC RESULTS:        internal signals:      260
+ABC RESULTS:              NAND cells:        7
+ABC RESULTS:             ORNOT cells:       34
+ABC RESULTS:                OR cells:       62
+ABC RESULTS:               NOT cells:       27
+ABC RESULTS:               XOR cells:       48
+ABC RESULTS:               MUX cells:       76
+ABC RESULTS:            ANDNOT cells:       77
+ABC RESULTS:        internal signals:      360
 ABC RESULTS:           input signals:       16
-ABC RESULTS:          output signals:       10
+ABC RESULTS:          output signals:       16
 Removing temp directory.
 
 18.24. Executing OPT pass (performing simple optimizations).
 
 18.24.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module lutalm_mul_s8.
+<suppressed ~12 debug messages>
 
 18.24.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\lutalm_mul_s8'.
-Removed a total of 0 cells.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
 
 18.24.3. Executing OPT_DFF pass (perform DFF optimizations).
 
 18.24.4. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \lutalm_mul_s8..
-Removed 0 unused cells and 150 unused wires.
-<suppressed ~19 debug messages>
+Removed 0 unused cells and 116 unused wires.
+<suppressed ~18 debug messages>
 
 18.24.5. Finished fast OPT passes.
 
@@ -738,24 +886,24 @@ Removed 0 unused modules.
 
 === lutalm_mul_s8 ===
 
-   Number of wires:                222
-   Number of wire bits:            264
-   Number of public wires:           5
-   Number of public wire bits:      47
+   Number of wires:                350
+   Number of wire bits:            463
+   Number of public wires:          12
+   Number of public wire bits:     125
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
-   Number of cells:                227
-     $_ANDNOT_                      71
-     $_AND_                          7
-     $_MUX_                         11
+   Number of cells:                354
+     $_ANDNOT_                      77
+     $_AND_                          4
+     $_MUX_                         76
      $_NAND_                         7
      $_NOR_                         16
-     $_NOT_                          8
-     $_ORNOT_                       11
-     $_OR_                          64
-     $_XNOR_                        15
-     $_XOR_                         17
+     $_NOT_                         27
+     $_ORNOT_                       33
+     $_OR_                          62
+     $_XNOR_                         4
+     $_XOR_                         48
 
 18.27. Executing CHECK pass (checking for obvious problems).
 Checking module lutalm_mul_s8...
@@ -788,8 +936,8 @@ Removed a total of 0 cells.
 
 19.7. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \lutalm_mul_s8..
-Removed 0 unused cells and 2 unused wires.
-<suppressed ~2 debug messages>
+Removed 0 unused cells and 9 unused wires.
+<suppressed ~9 debug messages>
 
 19.8. Executing OPT_EXPR pass (perform const folding).
 Optimizing module lutalm_mul_s8.
@@ -856,7 +1004,7 @@ Optimizing module lutalm_mul_s8.
 21. Executing ABC pass (technology mapping using ABC).
 
 21.1. Extracting gate netlist of module `\lutalm_mul_s8' to `<abc-temp-dir>/input.blif'..
-Extracted 227 gates and 243 wires to a netlist network with 16 inputs and 10 outputs.
+Extracted 354 gates and 370 wires to a netlist network with 16 inputs and 16 outputs.
 
 21.1.1. Executing ABC.
 Running ABC command: "<yosys-exe-dir>/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
@@ -928,78 +1076,78 @@ ABC: + &put
 ABC: + write_blif <abc-temp-dir>/output.blif 
 
 21.1.2. Re-integrating ABC results.
-ABC RESULTS:           NOR4_X1 cells:        4
-ABC RESULTS:            OR4_X1 cells:        4
-ABC RESULTS:            INV_X1 cells:        1
-ABC RESULTS:          OAI22_X1 cells:        2
-ABC RESULTS:         OAI211_X1 cells:        1
-ABC RESULTS:           AND4_X1 cells:        2
+ABC RESULTS:            OR4_X1 cells:        3
+ABC RESULTS:         OAI211_X1 cells:        2
+ABC RESULTS:          OAI22_X1 cells:        1
+ABC RESULTS:           AND3_X1 cells:        2
 ABC RESULTS:         OAI221_X1 cells:        2
+ABC RESULTS:           AND4_X1 cells:        6
 ABC RESULTS:           MUX2_X1 cells:        1
-ABC RESULTS:            OR3_X1 cells:        3
-ABC RESULTS:            OR2_X1 cells:        3
-ABC RESULTS:         AOI221_X1 cells:        3
-ABC RESULTS:           XOR2_X1 cells:        8
-ABC RESULTS:         AOI211_X1 cells:        4
-ABC RESULTS:          NAND3_X1 cells:        4
-ABC RESULTS:          NAND2_X1 cells:        8
-ABC RESULTS:           AND2_X1 cells:       11
-ABC RESULTS:           AND3_X1 cells:        6
-ABC RESULTS:           NOR3_X1 cells:        9
-ABC RESULTS:          NAND4_X1 cells:        7
-ABC RESULTS:          AOI22_X1 cells:        5
-ABC RESULTS:          OAI21_X1 cells:        8
-ABC RESULTS:          AOI21_X1 cells:       10
-ABC RESULTS:          XNOR2_X1 cells:       14
-ABC RESULTS:           NOR2_X1 cells:       17
-ABC RESULTS:        internal signals:      217
+ABC RESULTS:            OR2_X1 cells:       11
+ABC RESULTS:            INV_X1 cells:       16
+ABC RESULTS:         AOI211_X1 cells:       11
+ABC RESULTS:           AND2_X1 cells:        5
+ABC RESULTS:          AOI22_X1 cells:        8
+ABC RESULTS:          NAND4_X1 cells:        6
+ABC RESULTS:          OAI33_X1 cells:        6
+ABC RESULTS:          OAI21_X1 cells:       18
+ABC RESULTS:           NOR3_X1 cells:       19
+ABC RESULTS:           NOR4_X1 cells:        7
+ABC RESULTS:            OR3_X1 cells:        6
+ABC RESULTS:          XNOR2_X1 cells:       21
+ABC RESULTS:          NAND3_X1 cells:        6
+ABC RESULTS:           XOR2_X1 cells:       12
+ABC RESULTS:          NAND2_X1 cells:       37
+ABC RESULTS:          AOI21_X1 cells:       30
+ABC RESULTS:           NOR2_X1 cells:       21
+ABC RESULTS:        internal signals:      338
 ABC RESULTS:           input signals:       16
-ABC RESULTS:          output signals:       10
+ABC RESULTS:          output signals:       16
 Removing temp directory.
-Removed 0 unused cells and 243 unused wires.
+Removed 0 unused cells and 370 unused wires.
 
 22. Printing statistics.
 
 === lutalm_mul_s8 ===
 
-   Number of wires:                130
-   Number of wire bits:            159
+   Number of wires:                244
+   Number of wire bits:            273
    Number of public wires:           3
    Number of public wire bits:      32
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
-   Number of cells:                137
-     AND2_X1                        11
-     AND3_X1                         6
-     AND4_X1                         2
-     AOI211_X1                       4
-     AOI21_X1                       10
-     AOI221_X1                       3
-     AOI22_X1                        5
-     INV_X1                          1
+   Number of cells:                257
+     AND2_X1                         5
+     AND3_X1                         2
+     AND4_X1                         6
+     AOI211_X1                      11
+     AOI21_X1                       30
+     AOI22_X1                        8
+     INV_X1                         16
      MUX2_X1                         1
-     NAND2_X1                        8
-     NAND3_X1                        4
-     NAND4_X1                        7
-     NOR2_X1                        17
-     NOR3_X1                         9
-     NOR4_X1                         4
-     OAI211_X1                       1
-     OAI21_X1                        8
+     NAND2_X1                       37
+     NAND3_X1                        6
+     NAND4_X1                        6
+     NOR2_X1                        21
+     NOR3_X1                        19
+     NOR4_X1                         7
+     OAI211_X1                       2
+     OAI21_X1                       18
      OAI221_X1                       2
-     OAI22_X1                        2
-     OR2_X1                          3
-     OR3_X1                          3
-     OR4_X1                          4
-     XNOR2_X1                       14
-     XOR2_X1                         8
+     OAI22_X1                        1
+     OAI33_X1                        6
+     OR2_X1                         11
+     OR3_X1                          6
+     OR4_X1                          3
+     XNOR2_X1                       21
+     XOR2_X1                        12
 
-   Chip area for module '\lutalm_mul_s8': 165.452000
+   Chip area for module '\lutalm_mul_s8': 289.940000
 
 23. Executing Verilog backend.
 Dumping module `\lutalm_mul_s8'.
 
-End of script. Logfile hash: a94ac033f4, CPU: user 0.34s system 0.01s, MEM: 28.39 MB peak
+End of script. Logfile hash: b081575707, CPU: user 0.43s system 0.02s, MEM: 28.54 MB peak
 Yosys 0.33 (git sha1 2584903a060)
-Time spent: 46% 2x abc (0 sec), 16% 2x stat (0 sec), ...
+Time spent: 46% 2x abc (0 sec), 12% 32x opt_expr (0 sec), ...

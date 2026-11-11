@@ -1,16 +1,16 @@
 {
-  "architecture": "v10_nano",
+  "architecture": "v2_cross_comp",
   "total_cases": 65536,
-  "incorrect_cases": 64748,
-  "error_rate_pct": 98.7976,
-  "MRED_pct": 16.5127,
-  "MED": 514.9344,
-  "WCE": 4352,
+  "incorrect_cases": 62816,
+  "error_rate_pct": 95.8496,
+  "MRED_pct": 13.326,
+  "MED": 596.5381,
+  "WCE": 3585,
   "worst_case": {
-    "a": -128,
-    "b": -128,
-    "approx": 12032,
-    "exact": 16384,
-    "ae": 4352
+    "a": -127,
+    "b": -127,
+    "approx": 12544,
+    "exact": 16129,
+    "ae": 3585
   }
 }
