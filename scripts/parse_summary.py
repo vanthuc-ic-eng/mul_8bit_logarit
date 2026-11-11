@@ -63,9 +63,10 @@ def parse_report_dir(rep_dir: Path, name=""):
     asic_timing_file = rep_dir / "asic_timing.rpt"
     if asic_timing_file.exists():
         txt = asic_timing_file.read_text()
-        m_delay = re.search(r"([\d\.]+)\s+data arrival time", txt)
-        if m_delay:
-            delay = float(m_delay.group(1))
+        delays = [float(val) for val in re.findall(r"([\d\.]+)\s+data arrival time", txt)]
+        valid_delays = [v for v in delays if v > 0]
+        if valid_delays:
+            delay = valid_delays[-1]
             d["asic_delay_ns"] = f"{delay:.3f}"
             d["asic_fmax_mhz"] = f"{(1000.0 / delay):.2f}"
         else:

@@ -68,6 +68,7 @@ mapfile -t RTL_FILES < <(find rtl -maxdepth 1 -type f -name "*.v" ! -name "top_b
         echo "hierarchy -check -top ${TOP_MODULE}"
     fi
     echo "synth -top ${TOP_MODULE} -flatten"
+    echo "dfflibmap -liberty ${LIB}"
     echo "opt -purge"
     echo "opt"
     echo "abc -liberty ${LIB}"
@@ -93,17 +94,17 @@ if command -v sta >/dev/null 2>&1; then
 read_liberty ${LIB}
 read_verilog ${NETLIST}
 link_design ${TOP_MODULE}
-create_clock -name clk -period 10.0
-set_input_delay -clock clk 0.0 [all_inputs]
+create_clock -name clk -period 10.0 [get_ports clk]
+set_input_delay -clock clk 0.0 [get_ports {a_i* b_i* rst_n}]
 set_output_delay -clock clk 0.0 [all_outputs]
 report_checks -path_delay max -format full > ${REPORT_DIR}/asic_timing.rpt
 report_power > ${REPORT_DIR}/asic_power.rpt
 exit
 STA_EOF
 
-    sta "${STA_SCRIPT}" > "${REPORT_DIR}/opensta.log" 2>&1
+    sta -exit "${STA_SCRIPT}" > "${REPORT_DIR}/opensta.log" 2>&1
 
-    DELAY=$(grep -E "\s+[0-9\.]+\s+data arrival time" "${REPORT_DIR}/asic_timing.rpt" | head -n 1 | awk '{print $1}')
+    DELAY=$(grep -E "\s+[0-9\.]+\s+data arrival time" "${REPORT_DIR}/asic_timing.rpt" | tail -n 1 | awk '{print $1}')
     TOTAL_PWR=$(grep -E "^Total\s+" "${REPORT_DIR}/asic_power.rpt" | awk '{printf "%.2f", $5 * 1000000}')
     DYN_PWR=$(grep -E "^Total\s+" "${REPORT_DIR}/asic_power.rpt" | awk '{printf "%.2f", ($2 + $3) * 1000000}')
     LEAK_PWR=$(grep -E "^Total\s+" "${REPORT_DIR}/asic_power.rpt" | awk '{printf "%.2f", $4 * 1000000}')

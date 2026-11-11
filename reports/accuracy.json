@@ -1,16 +1,19 @@
 {
-  "architecture": "v2_cross_comp",
+  "architecture": "v11_lean_flex",
   "total_cases": 65536,
-  "incorrect_cases": 62816,
-  "error_rate_pct": 95.8496,
-  "MRED_pct": 13.326,
-  "MED": 596.5381,
-  "WCE": 3585,
+  "incorrect_cases": 64380,
+  "error_rate_pct": 98.2361,
+  "MRED_pct": 5.5861,
+  "MED": 158.467,
+  "WCE": 1472,
+  "symmetric_mred_pct": 5.607,
+  "symmetric_med": 158.3142,
+  "symmetric_wce": 1472,
   "worst_case": {
-    "a": -127,
-    "b": -127,
-    "approx": 12544,
-    "exact": 16129,
-    "ae": 3585
+    "a": -128,
+    "b": -128,
+    "approx": 15872,
+    "exact": 16384,
+    "ae": 512
   }
 }

@@ -1,21 +1,23 @@
-// NGUYEN VAN THUC - 24161421
-/*
- * Module: lutalm_mul_s8_registered
- * Description: Industrial benchmark registered wrapper for lutalm_mul_s8.
- * Provides synchronous input and output registers for accurate FPGA & ASIC
- * Register-to-Register (Reg2Reg) timing analysis, setup slack calculation,
- * maximum operating frequency (Fmax), and vector-based dynamic power reporting.
- */
+// ==============================================================================
+// LUT-ALM V11 REGISTERED WRAPPER (AMD Vivado 2024.2 / Nangate 45nm ASIC Sign-off)
+// Author: NGUYEN VAN THUC (MSSV: 24161421) - Lead of Team Conquerors
+// Institution: Ho Chi Minh City University of Technology and Education (HCMUTE)
+//
+// Description:
+//   Synchronous benchmark register pipeline wrapper for lutalm_mul_s8.
+//   Provides input and output DFF isolation for exact Register-to-Register (Reg2Reg)
+//   static timing analysis (STA), setup/hold slack, Fmax, and vector activity power.
+// ==============================================================================
 
 `timescale 1ns / 1ps
 
 module lutalm_mul_s8_registered #(
-    parameter integer MODE              = 2,
+    parameter integer MODE              = 1, // 0: Ultra Balanced, 1: Lean Flex Sweet-Spot, 2: Nano Extreme
     parameter integer LOW_W             = 2,
     parameter integer TRUNC_BITS        = 4,
     parameter integer ZERO_ADDER        = 1,
     parameter integer ADAPTIVE_LUT      = 0,
-    parameter integer OPERAND_ISOLATION = 1
+    parameter integer OPERAND_ISOLATION = 0
 )(
     input  wire               clk,
     input  wire               rst_n,

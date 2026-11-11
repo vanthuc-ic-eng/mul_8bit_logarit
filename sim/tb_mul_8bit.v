@@ -17,7 +17,7 @@
 
 module tb_mul_8bit;
 
-    parameter integer MODE              = 2; // 0: Ultra Balanced, 1: Ultra Compact, 2: Nano
+    parameter integer MODE              = 1; // 0: Ultra Balanced, 1: Lean Flex Sweet-Spot, 2: Nano
     parameter integer OPERAND_ISOLATION = 1;
 
     reg signed  [7:0]  a_i;

@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
-| Date         : Wed Nov 11 13:15:55 2026
+| Date         : Wed Nov 11 14:04:17 2026
 | Host         : ic-workstation running 64-bit Ubuntu 24.04.5 LTS
 | Command      : report_high_fanout_nets -fanout_greater_than 5 -max_nets 20 -file reports/high_fanout_nets.rpt
 | Design       : lutalm_mul_s8_registered
@@ -13,29 +13,29 @@ High Fan-out Nets Information
 1. Summary
 ----------
 
-+------------------+--------+-------------+
-| Net Name         | Fanout | Driver Type |
-+------------------+--------+-------------+
-| p_o[15]_i_2_n_0  |     32 | LUT1        |
-| b_reg[7]         |     26 | FDCE        |
-| a_reg[7]         |     24 | FDCE        |
-| p_o[14]_i_2_n_0  |     22 | LUT5        |
-| p_o[14]_i_4_n_0  |     21 | LUT5        |
-| p_o[14]_i_11_n_0 |     20 | LUT3        |
-| p_o[15]_i_3_n_0  |     16 | LUT6        |
-| p_o[14]_i_12_n_0 |     14 | LUT6        |
-| p_o[14]_i_15_n_0 |     11 | LUT6        |
-| p_o[14]_i_16_n_0 |     11 | LUT6        |
-| b_reg__0[3]      |     11 | FDCE        |
-| b_reg__0[0]      |     10 | FDCE        |
-| b_reg__0[1]      |     10 | FDCE        |
-| b_reg__0[2]      |     10 | FDCE        |
-| a_reg__0[3]      |      9 | FDCE        |
-| p_o[14]_i_14_n_0 |      9 | LUT6        |
-| p_o[14]_i_13_n_0 |      9 | LUT6        |
-| a_reg__0[0]      |      8 | FDCE        |
-| b_reg__0[5]      |      8 | FDCE        |
-| a_reg__0[1]      |      7 | FDCE        |
-+------------------+--------+-------------+
++-------------------------------------+--------+-------------+
+| Net Name                            | Fanout | Driver Type |
++-------------------------------------+--------+-------------+
+| p_o[15]_i_2_n_0                     |     28 | LUT1        |
+| a_reg[7]                            |     19 | FDCE        |
+| b_reg[7]                            |     18 | FDCE        |
+| u_core/gen_mode_lean_flex.frac_w[5] |     13 | CARRY4      |
+| u_core/gen_mode_lean_flex.frac_w[6] |     13 | CARRY4      |
+| u_core/p_o[15]_i_3_n_0              |     12 | LUT6        |
+| u_core/gen_mode_lean_flex.frac_w[4] |     11 | CARRY4      |
+| u_core/gen_mode_lean_flex.frac_w[3] |     11 | CARRY4      |
+| u_core/p_o[15]_i_4_n_0              |     10 | LUT2        |
+| a_reg__0[5]                         |      8 | FDCE        |
+| b_reg__0[6]                         |      8 | FDCE        |
+| a_reg__0[6]                         |      8 | FDCE        |
+| a_reg__0[3]                         |      8 | FDCE        |
+| b_reg__0[5]                         |      7 | FDCE        |
+| b_reg__0[4]                         |      7 | FDCE        |
+| b_reg__0[3]                         |      7 | FDCE        |
+| b_reg__0[2]                         |      7 | FDCE        |
+| a_reg__0[4]                         |      7 | FDCE        |
+| u_core/gen_mode_lean_flex.frac_w[2] |      6 | CARRY4      |
+| a_reg__0[2]                         |      6 | FDCE        |
++-------------------------------------+--------+-------------+
 
 
